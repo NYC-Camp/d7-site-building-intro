@@ -1,0 +1,1379 @@
+
+<!-- saved from url=(0099)drupalsitebuilding.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+      
+      <link type="text/css" rel="stylesheet" href="./drupalsitebuilding_files/drupalsitebuilding.css" media="all">
+      
+   <title>Drupal Site Building - Drupal 7</title><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="book" title="Drupal Site Building - Drupal 7"><div class="titlepage"><div><div><h1 class="title"><a name="d6e1"></a>Drupal Site Building - Drupal 7</h1></div><div><div class="author"><h3 class="author"><span class="othername">Drupal NYC</span></h3></div></div><div><div class="author"><h3 class="author"><span class="othername"></span></h3></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="chapter"><a href="drupalsitebuilding.html#d6e16">1. Drupal Environment</a></span></dt><dd><dl><dt><span class="section"><a href="drupalsitebuilding.html#d6e21">AMP Underpinnings</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e40">Class AMP environment</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e67">Record Your Setup Information</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e104">Before Installing Drupal</a></span></dt></dl></dd><dt><span class="chapter"><a href="drupalsitebuilding.html#d6e117">2. Installing Drupal for the First Time (Web Based Installer)</a></span></dt><dd><dl><dt><span class="section"><a href="drupalsitebuilding.html#d6e121">Installing Drupal </a></span></dt></dl></dd><dt><span class="chapter"><a href="drupalsitebuilding.html#d6e159">3. Creating Content</a></span></dt><dd><dl><dt><span class="section"><a href="drupalsitebuilding.html#d6e164">Creating Basic Content</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e234">Tour of Drupal Admin "out of the box"</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e300">Editing and publishing options</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e362">Static pages, the Basic Page content type</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e390">Content Type Settings</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e406">Our First Menu! A Menu Preview</a></span></dt></dl></dd><dt><span class="chapter"><a href="drupalsitebuilding.html#d6e426">4. Sources of Content - Blocks and Modules</a></span></dt><dd><dl><dt><span class="section"><a href="drupalsitebuilding.html#d6e447">Place blocks already available from core modules</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e467">Enable another core module to get new page content</a></span></dt></dl></dd><dt><span class="chapter"><a href="drupalsitebuilding.html#d6e525">5. Roles, Permissions, and Visibility</a></span></dt><dd><dl><dt><span class="section"><a href="drupalsitebuilding.html#d6e530">Roles and Permissions</a></span></dt><dd><dl><dt><span class="section"><a href="drupalsitebuilding.html#d6e532">An Anonymous User</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e545">Administering Permissions and User/1</a></span></dt></dl></dd><dt><span class="section"><a href="drupalsitebuilding.html#d6e568">Visibility by Role (and path...)</a></span></dt></dl></dd><dt><span class="chapter"><a href="drupalsitebuilding.html#d6e638">6. Menus!</a></span></dt><dd><dl><dt><span class="section"><a href="drupalsitebuilding.html#d6e643">Add and edit menus while creating content</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e703">Managing Menus</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e753">Multi-Level Menus</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e798">Displaying Menus as Blocks</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e819">Menu Items Created by Modules</a></span></dt></dl></dd><dt><span class="chapter"><a href="drupalsitebuilding.html#d6e849">7. Taxonomy</a></span></dt><dd><dl><dt><span class="section"><a href="drupalsitebuilding.html#d6e854">Create a Taxonomy for "Sections"</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e931">Vocabulary in Action</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e947">Taxonomy with More Content</a></span></dt></dl></dd><dt><span class="chapter"><a href="drupalsitebuilding.html#d6e978">8. Themes</a></span></dt><dd><dl><dt><span class="section"><a href="drupalsitebuilding.html#d6e983">Try a New Theme (or Two)</a></span></dt></dl></dd><dt><span class="chapter"><a href="drupalsitebuilding.html#d6e1037">9. Fields</a></span></dt><dd><dl><dt><span class="section"><a href="drupalsitebuilding.html#d6e1043">Install Needed Modules</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e1065">Create a Staff Content Type</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e1336">Image styles</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e1363">Field Display Options</a></span></dt></dl></dd><dt><span class="chapter"><a href="drupalsitebuilding.html#d6e1420">10. Views</a></span></dt><dd><dl><dt><span class="section"><a href="drupalsitebuilding.html#d6e1425">Create a Staff View</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e1481">Move Staff Page Menu</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e1513">Display the staff listing block</a></span></dt></dl></dd><dt><span class="chapter"><a href="drupalsitebuilding.html#d6e1523">11. Controling your markup with Display Suite</a></span></dt><dd><dl><dt><span class="section"><a href="drupalsitebuilding.html#d6e1528">Modifying a view mode</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e1578">Extra settings</a></span></dt></dl></dd></dl></div>
+	
+	<div class="abstract" title="Abstract"><div class="titlepage"></div>
+    <p>
+     This course covers how to build a site with Drupal.  Site building here means
+     creating a site without programming or theming.  Coverage include basic
+     post-installation, understanding of administrative functions of setting up a drupal
+     site, working with menus, using regions and blocks, installing and using core and
+     common contrib modules.  Most importantly building your own content types with the
+     Content Construction Kit  and
+     creating output for your pages with Views is covered in some detail.  As an added
+     bonus we also include an example of improving your admin interface.
+    </p>
+	</div>
+
+    <div class="chapter" title="Chapter 1. Drupal Environment"><div class="titlepage"><div><div><h2 class="title"><a name="d6e16"></a>Chapter&nbsp;1.&nbsp;Drupal Environment</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="drupalsitebuilding.html#d6e21">AMP Underpinnings</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e40">Class AMP environment</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e67">Record Your Setup Information</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e104">Before Installing Drupal</a></span></dt></dl></div>
+		
+		<div class="abstract" title="Abstract"><div class="titlepage"></div>
+		<p>
+         This chapter covers some background information about the environment in which
+         you run a Drupal site.  We'll also define some information you'll need to
+         complete the rest of this course.
+		</p>
+		</div>
+		<div class="section" title="AMP Underpinnings"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e21"></a>AMP Underpinnings</h2></div></div></div>
+		
+		<p>
+		The web server environment most commonly used to run Drupal (or any other PHP-based web application) is often referred to as <span class="emphasis"><em>LAMP</em></span>, which is short for Linux, Apache, MySQL, and PHP. For this class, we will refer to this to AMP, as you will see you can install Apache, MySQL and PHP on Linux, Windows, or Mac computers. You will often hear this referred to as the AMP "stack". In this context, "stack" means a set of programs that work together to accomplish a task (serving up your PHP-based, data driven, Web site).
+		</p>
+		<p>
+		Here is a brief description of what these components do:
+		</p>
+		<div class="variablelist" title="AMP Stack"><p class="title"><b>AMP Stack</b></p><dl><dt><span class="term">Apache</span></dt><dd>
+				<p>
+				Apache is the most common web server in use on the Internet today. It accepts requests to your Web site from browsers such as Firefox, Internet Explorer, or Safari, and sends the resulting page content back to the browser.  Other web server software can also be used for Drupal.  NGINX in particular is becoming popular.
+				</p>
+				</dd><dt><span class="term">MySQL</span></dt><dd>
+				<p>
+				MySQL is an open source relational database program (RDBMS). This is the database most commonly used to store your Web site data. Drupal supports other databases as well. Postgres is another free option.  Drupal 7 will include support for SQLite and other databases as well.
+				</p>
+				</dd><dt><span class="term">PHP</span></dt><dd>
+				<p>
+				PHP: Hypertext Pre-Processor. PHP is simply the programming language that Drupal is developed in. It is a requirement to run Drupal.  PHP is a scripting language which means that it is interpreted at "run time".  However there are many possibly ways to optimize PHP applications.  PHP based web applications power much of the internet.
+				</p>
+				</dd></dl></div>
+		</div>
+        <div class="section" title="Class AMP environment"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e40"></a>Class AMP environment</h2></div></div></div>
+          
+          <p>For the purpose of this class you'll need someplace to install Drupal to
+           perform the hands-on activities.  We won't go into exact detail as there are a
+          few different ways this can be done.  Your instructor will provide you with
+          details on how/where you'll be setting up Drupal for this class.</p>
+          <p>There are a few different possibilities here:</p>
+          <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+                  <p>Local pre-configured AMP "stack": </p>
+                  <p>Some local options include for example WAMP for Windows, MAMP for
+                  Mac, and the Acquia Drupal Stack installer (both Windows and MAC).</p>
+              </li><li class="listitem">
+                  <p>Remote web server (managed with CPanel or similar)</p>
+                  <p>These may be low cost shared hosting providers.  Some may provide
+                  command line access to the server, others may not.</p>
+              </li><li class="listitem">
+                  <p>Remote web server (with command line "ssh" access)</p>
+                  <p>This could be cloud hosting, slice hosting, or some other sort of
+                  dedicated hosting.  These may provide greater resources for your web
+                  server, but may not have some consumer features such as a web based
+                  CPANEL interface.</p>
+              </li></ol></div>
+            <div class="sidebar" title="Detour - Understanding the *NIX Permissions"><div class="titlepage"><div><div><p class="title"><b>Detour - Understanding the *NIX Permissions</b></p></div></div></div>
+            
+            <p>Unix/Linux use a set of permissions for the owner of the file/directory, called "User"; the group that the user is a member of ("Group"); and everyone else ("Other").</p>
+          <p>On a typical shared host, when you upload files to the server using command line (wget), CPanel, or FTP, the files associate your account with the provider as the owner and your group as the group. Apache doesn't run under your account, so the Apache user is considered "other".  Therefore, any files modified or directories created by Drupal must be under the permission of "other".  For security reasons, you don't want Apache to be able to do things you don't want (like modify code files) as that is a security issue.  Usually, you only want the webserver (Apache) to have the ability to write to specific directories.  In Drupal, it is the files directory where users upload files (images, etc.).  All other folders should not have write permissions for the web server.</p>
+            <p>As a special case, when you first install Drupal, you want the webserver to temporarily be able to do two things to get Drupal installed you normally wouldn't allow:</p>
+            <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">First, you want it to edit the settings.php with the information you provide around database user/password, etc</li><li class="listitem">Second, you want it to create an empty files directory so users have a place to put their files.  </li></ul></div>
+          <p>To do this on a Unix or Linux system, you simply need to do two things:</p>
+          	<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">Give "other" write permission to the settings.php you created.</li><li class="listitem">Give "other" write permission to the "default" folder. By default, this is where Drupal will try to create the files folder.  For a multisite install, these instructions are slightly different, but that is beyond the scope of this course.</li></ul></div>
+          <p>If you have command line access to your server (shell or ssh are other common names for this), then follow the instructions in the INSTALL.txt file in the root Drupal folder.  If you don't have shell access (you are using CPANEL, FTP, or just prefer a GUI interface), then you'll have to figure out how to give "other" write access to the settings.php file and the sites/default folder.  The result should be the same.</p>
+            </div>
+        </div>
+        <div class="section" title="Record Your Setup Information"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e67"></a>Record Your Setup Information</h2></div></div></div>
+          
+          <p>Since Drupal runs in lots of places you'll need to record information
+           specific for how your class will run.  Most of this information will come from
+          your instructor.</p>
+         <div class="variablelist" title="Class Setup Information"><p class="title"><b>Class Setup Information</b></p><dl><dt><span class="term">DRUPAL_ROOT_URL</span></dt><dd>
+              <p>
+               This is the URL you'll be using to get to your class drupal.  If you are
+               running locally this could be http://localhost/drupal6sitebuilding or
+               perhaps http://localhost:8888/drupal6sitebuilding.  If you are running this
+               on a server provided by the instructor they will provide this URL to you.
+               You'll know it is right as you should see a Welcome to Drupal Install
+               screen when you go to that URL in your browser.
+              </p>
+             </dd><dt><span class="term">DRUPAL_ROOT_PATH</span></dt><dd>
+              <p>
+               This is how you'll get to where your Drupal Installation files if you need
+               to add or modify files.  If you are running this locally it could simply be
+               a local file path such as C:\wamp\htdocs\drupal.  If you are running this
+               on a server provided by the instructor they will provide you with this
+               information and how to manage files as needed for the course.
+              </p>
+             </dd><dt><span class="term">PHPMYADMIN_URL</span></dt><dd>
+              <p>
+               If you are running this locally this could be http://localhost/phpmyadmin.
+               If you are using an environment provided by the instructor they may have
+               already set up a database for you so you may not even need this.
+              </p>
+             </dd><dt><span class="term">MYSQL_USERNAME</span></dt><dd>
+              <p>
+               A MYSQL Username that has access to a blank MYSQL database to install
+               Drupal to.  You'll need this during Drupal Web Based Install.
+              </p>
+             </dd><dt><span class="term">MYSQL_PASSWORD</span></dt><dd>
+              <p>
+               A password for the above Mysql user.  You'll need this also during the
+               Drupal Web Based Install.
+              </p>
+             </dd><dt><span class="term">MYSQL_DATABASE_NAME</span></dt><dd>
+              <p>
+               The Mysql database name that you want to install Drupal too.  You will
+               either create this during class or your instructor may provide you this
+               information.
+              </p>
+             </dd><dt><span class="term">DRUPAL_ADMIN_NAME</span></dt><dd>
+              <p>
+               You will create this yourself during the course during Drupal installation.
+               It is the first user you create for your website during Drupal install.
+               You'll need this recorded somewhere.
+              </p>
+             </dd><dt><span class="term">DRUPAL_ADMIN_PASSWORD</span></dt><dd>
+              <p>
+               You will create this yourself during the course during Drupal installation
+               to go along with above admin user name.
+              </p>
+             </dd></dl></div>
+        </div>
+        <div class="section" title="Before Installing Drupal"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e104"></a>Before Installing Drupal</h2></div></div></div>
+          
+          <p>These are the high level steps you must complete prior to starting the web
+          based Drupal install.  We are not providing detailed steps as this will vary
+          somewhat depending on where you are installing Drupal (local environment vs. a
+          web server set up for class, etc.)</p>
+          <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+                  <p>Download Files for Class.  Don't just download the standard Drupal
+                  install files and the class files have additional files included for
+                  class (contributed modules, images, etc.)</p>
+              </li><li class="listitem">
+                <p>Create the configuration file (settings.php) by copying the
+                 default.settings.php</p>
+              </li><li class="listitem">
+                <p>Modify file permissions on the new settings.php file and on the
+                 sites/default folder to allow for Drupal install</p>
+              </li><li class="listitem">
+                <p>Create a blank MYSQL database.</p>
+              </li></ol></div>
+          <p>Your instructor will guide you in these activities as per your class
+           setup.</p>
+        </div>
+	</div>
+	<div class="chapter" title="Chapter 2. Installing Drupal for the First Time (Web Based Installer)"><div class="titlepage"><div><div><h2 class="title"><a name="d6e117"></a>Chapter&nbsp;2.&nbsp;Installing Drupal for the First Time (Web Based Installer)</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="drupalsitebuilding.html#d6e121">Installing Drupal </a></span></dt></dl></div>
+		
+        <p>Assumptions: You have a blank MySQL database and have configured the drupal
+         installation files in preparation for a web based install.  You have recorded the
+         needed information as per the previous section&gt;</p>
+	  <div class="section" title="Installing Drupal"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e121"></a>Installing Drupal </h2></div></div></div>
+        
+        <div class="task" title="Installing Drupal"><p class="title"><b>Installing Drupal </b></p><div class="tasksummary">We will install Drupal</div><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Go to DRUPAL_ROOT_URL</p></li><li class="step" title="Step 2"><p>Select Install in English.</p></li><li class="step" title="Step 3"><p>Setup the database.</p>
+            <p>database name = <strong class="userinput"><code>MYSQL_DATABASE_NAME</code></strong></p>
+            <p>database username = <strong class="userinput"><code>MYSQL_USERNAME</code></strong></p>
+            <p>database password = <strong class="userinput"><code>MYSQL_PASSWORD</code></strong></p></li><li class="step" title="Step 4"><p>Click Advanced, but don't change anything.</p>
+            <div class="sidebar" title="Advanced Options"><div class="titlepage"><div><div><p class="title"><b>Advanced Options</b></p></div></div></div>
+            
+            <p>Before proceeding, please note the Advanced options.  For example, the
+             database prefix option allows you to run more than one Drupal 
+             installation from a single mysql database, using a table
+             prefix that you specify.  Use a separate prefix for each install.
+            This isn't a great idea, but could, for example, allow you to get around
+            limitations of a shared hosting environment.</p>
+            </div>
+           </li><li class="step" title="Step 5"><p>Click next.</p></li><li class="step" title="Step 6"><p>Configure the site:</p>
+             <p>Site Name = Ournews</p>
+             <p>Site email = noreply@example.com </p>
+             <p>Administrator..Username = DRUPAL_ADMIN_NAME </p>
+             <p>Administrator..email address= webmaster@example.com </p>
+             <p>Administrator..password = DRUPAL_ADMIN_PASSWORD </p>
+             <p>Select the time zone</p>
+             <p>Make sure clean urls is on.</p>
+           </li><li class="step" title="Step 7"><p>Click next</p></li><li class="step" title="Step 8"><p>Click You may now visit your new site</p></li></ol></div></div>
+        </div>
+	</div>
+	<div class="chapter" title="Chapter 3. Creating Content"><div class="titlepage"><div><div><h2 class="title"><a name="d6e159"></a>Chapter&nbsp;3.&nbsp;Creating Content</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="drupalsitebuilding.html#d6e164">Creating Basic Content</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e234">Tour of Drupal Admin "out of the box"</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e300">Editing and publishing options</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e362">Static pages, the Basic Page content type</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e390">Content Type Settings</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e406">Our First Menu! A Menu Preview</a></span></dt></dl></div>
+     	
+     <div class="abstract" title="Abstract"><div class="titlepage"></div>
+      <p>Now we have an empty site.  Next is to learn the basics of adding
+       content.  We'll learn how to create the most basic content type, where it is
+       displayed by default, and some basic content creation options.</p>
+     </div>
+     <div class="section" title="Creating Basic Content"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e164"></a>Creating Basic Content</h2></div></div></div>
+        
+        <div class="task" title="Creating an Article Node"><p class="title"><b>Creating an Article Node</b></p><div class="tasksummary">Let's create our first story for our new "Drupal High" Web site.</div><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Click the "Add new content" link in the gray shortcut bar. You'll find it just below the black
+              toolbar that spans the top of the page.</p></li><li class="step" title="Step 2"><p>Select Article</p>
+         <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Briefly discuss the two out of the box content types.</p></td></tr></tbody></table></div></li><li class="step" title="Step 3"><p>New Page Information</p>
+         <p>Title = <strong class="userinput"><code>Drupal High Web Site Launched</code></strong></p>
+         <p>Body = <strong class="userinput"><code>Principal Dries has commissioned this exciting new Web site.
+                This Web site is based on Drupal - the powerful CMS with outstanding support for
+                building a community-based Web site.          Check back often as this Web site will
+                take off fast!</code></strong>
+            </p>
+        </li><li class="step" title="Step 4"><p>Describe the basic options briefly</p>
+        <div class="variablelist"><dl><dt><span class="term">- Input Format</span></dt><dd><p>Input formats are a common source of errors for new users.  We will come back to this in a moment.</p>
+          </dd><dt><span class="term">Revision Information</span></dt><dd><p>Retains revision information so you can roll back to old content.  You probably don't
+            want this for all content types.</p>
+          </dd><dt><span class="term">Comment Settings</span></dt><dd><p>Obvious?</p>
+         </dd><dt><span class="term">Authoring Information</span></dt><dd><p>Leave blank for anonymous. As the administrator, you may want the ability to post as someone
+           else. You probabl don't want this enabled for users.</p></dd><dt><span class="term">Publishing Options</span></dt><dd><p>Published means accessible to users. Promoted to home page means it will appear on the default
+                    home page. Sticky at top of lists means that it will come to the top of the home
+                    page or similar views of content (above other "non-sticky" published nodes).
+                    This will become obvious by example.</p></dd></dl></div>
+         <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Remember: What a user sees is based on their permissions.  Since we are logged in as "user 1", or the root user, we see all options when creating content. Permissions, which are covered later, allow us to control this.</p></td></tr></tbody></table></div>
+       </li><li class="step" title="Step 5"><p>Expand the publishing options and note that stories default to published
+         and promoted.</p>
+       </li><li class="step" title="Step 6"><p>Don't change any other options for now. </p>
+       </li><li class="step" title="Step 7"><p>Click Preview.</p></li><li class="step" title="Step 8"><p>Note the preview.  There are two ways to show content: the shorter <span class="emphasis"><em>trim version</em></span> and the <span class="emphasis"><em>full version</em></span>.</p>
+       </li><li class="step" title="Step 9">
+        <p>Enter a sample sentence and then copy and paste it to have about 20 lines of text.</p>
+       </li><li class="step" title="Step 10"><p>Cilck Preview again, and note the differences between the "trim" version and the full version.</p>
+        <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>By default, Drupal trims the story to display the first 600 characters. You can change the number of characters.</p></td></tr></tbody></table></div>
+       </li><li class="step" title="Step 11"><p>What is the "Edit Summary" link all about?</p>
+        <p>Click the "Edit summary" link next to "Body"</p>
+        <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">Note the two boxes that appear.</td></tr></tbody></table></div>
+            <p>Enter some text into the new summary text box. Be sure to use different text then
+              what is already in the body field.</p>
+       </li><li class="step" title="Step 12"><p>Click "Preview" once again. </p>
+        <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note how the full view doesn't include the teaser at all.</p></td></tr></tbody></table></div>
+        </li><li class="step" title="Step 13"><p>Go to the home page to view the story, then click on the story title (or the "read more" link) to see the full story - confirm it displays as you expected - the full version includes the teaser and the extra body content.</p></li></ol></div></div>
+      </div>
+      <div class="section" title="Tour of Drupal Admin &quot;out of the box&quot;"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e234"></a>Tour of Drupal Admin "out of the box"</h2></div></div></div>
+       
+        <div class="task" title="A quick look at some admin settings."><p class="title"><b>A quick look at some admin settings.</b></p><div class="tasksummary">You need to be familiar with the range of administrative options Drupal provides out of the box.  We'll take a quick look and change a few settings here.</div><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1">
+            <p>Before we start, lets discuss the toolbar and the shortcut bar. The toolbar (the
+              black bar across the top) is your main administrative navigation. The grey shortcut
+              bar allows you to add any links that you visit often whenever you want. These can be
+              setup globally or on a per-user basis. Let's take a quick look. Click the Structure
+              link in the toolbar and then click the "Snapshots" link. Now, click the "+" directly
+              next to the "Snapshots" title. Now you have a new shortcut!</p>
+          </li><li class="step" title="Step 2"><p>A quick tour of the configuration options with no additional modules enabled yet.</p>
+		 <p>
+			 </p><div class="variablelist"><dl><dt><span class="term">Clean URLs</span></dt><dd>
+             <p>
+              Consider two URLs.  http://mysite.com/?q=whatever vs
+              http://mysite.com/whatever.  The previous is called a URL with a
+              "querystring".  Since we are using a database to store our data the paths do
+              not represent real paths on the web server hard drive (i.e. there is not
+              file called "whatever" to be found).  So the querystring represents
+              instructions on what we want to retrieve and display.  Most site owners want
+              paths that make sense to users.  With clean urls turned on the querystring
+              is hidden to the user.  Support for this feature is built into the Apache
+              webserver (and others).
+             </p>
+             </dd><dt><span class="term">File System &amp; Private Filessytem</span></dt><dd>
+             <p> Shows where on the web server that Drupal create the files folder by default.
+                      This folder must be writable by the server process. By default this folder is
+                      placed below the default folder at "sites/default/files". As of D7 you can
+                      have two folders; one for public files and one for private files. If you are
+                      using private files you may want to move this folder to someplace above your
+                      apache document root. </p>
+             </dd><dt><span class="term">Input Formats</span></dt><dd>
+             <p>We'll talk about this more in the context of editing content. In short it allows
+                      you to filter and control what users enter to avoid bad information in your
+                      site. </p>
+             </dd><dt><span class="term">Performance</span></dt><dd>
+             <p>
+              How does Drupal standard caching work?  Good news for sites with a lot of
+              anonymous users.  Are there other options?  What do the other options do
+              (and when might you turn them off)?
+             </p>
+             </dd><dt><span class="term">Site Maintenance</span></dt><dd>
+             <p>
+              Putting your site in maintenance mode (when should you do that).
+             </p>
+             </dd><dt><span class="term">Site Information</span></dt><dd>
+             <p>
+              Basic information about your site (may be used by themes).
+             </p>
+             </dd></dl></div><p>
+         </p>
+        </li><li class="step" title="Step 3">
+         <p>Modify the Site Information as follows:</p>
+         <p>Slogan = <strong class="userinput"><code>Our slogan at Drupal High School is to development the next
+                generation of leaders Drupal Leaders!</code></strong></p>
+          <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note that here you can change the default home page and the default 403/404 pages to any path
+                - a specific page, or view or panels if you're using those modules.</p></td></tr></tbody></table></div>
+        </li><li class="step" title="Step 4">
+         <p>Go to Post Settings.</p>
+         <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note the number of posts on the home page.</p></td></tr></tbody></table></div>
+        </li><li class="step" title="Step 5">
+         <p>Set it to 5 only.</p>
+        </li><li class="step" title="Step 6"><p>The structure options contains the building blocks for your content.</p>
+           <p>What is a block?</p>
+           <p>What is a content type?</p>
+            <p>What is a menu?</p>
+           <p>What is a taxonomy?</p>
+        </li><li class="step" title="Step 7">
+            <p>The modules options allow you to enable and disable specific functionaility on
+              your site.</p>
+            <p>Enable the "module filter" module by clicking hte checkbox on the left and then
+              clicking "Save configuration". After the page re-loads notice that we have some new
+              functionality. </p>
+          </li><li class="step" title="Step 8">
+            <p>The appearence options allow you to select and configure what theme(s) your site
+              should use.</p>
+            <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+              <p>Explain the Administrative theme. Now is probably a good time to talk about the
+                overlay as well.</p>
+            </td></tr></tbody></table></div>
+          </li><li class="step" title="Step 9">
+           <p>Go through people options</p>
+           <p>Permissions (we can create roles, new modules and content types will show additional permission options so always go back here after adding modules or new content types)</p>
+           <p>What are roles?</p>
+           <p>Users (compare to ability to manage content here ability to manage/edit users)</p>
+        </li></ol></div></div>
+      </div>
+      <div class="section" title="Editing and publishing options"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e300"></a>Editing and publishing options</h2></div></div></div>
+       
+       <div class="task" title="Adding another story and understanding publishing Options"><p class="title"><b>Adding another story and understanding publishing Options</b></p><div class="tasksummary">To better understand the basic publishing options.
+       We'll create another "story" and demote the first page we created above so it is published, but not on the home page.</div><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Let's first make a note of the link to the first article.</p>
+            <p>Click on the first article title. Jot down the URL somewhere.</p>
+           </li><li class="step" title="Step 2"><p>Now, let's create a second article.</p>
+             <p>Click Create Content, then click Article.</p>
+            </li><li class="step" title="Step 3"><p>Enter the following:</p>
+              <p>Title = <strong class="userinput"><code>Welcome Returning Students!</code></strong></p>
+              <p>Body = <strong class="userinput"><code><span class="markup">&lt;p&gt;&lt;strong&gt;Principal Dries&lt;/strong&gt; here!&lt;/p&gt;
+              &lt;p&gt;Welcome to a new school year at Drupal U!  We hope you are looking forward to the new year just as we are.  Check back soon for more news and information.  We'll have information for students, teachers, and parents.&lt;/p&gt;
+              &lt;p&gt; - &lt;em&gt;D.B&lt;/em&gt;&lt;/p&gt;</span></code></strong></p>
+            </li><li class="step" title="Step 4"><p>Click Save, then go to the site home page.</p>
+              <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Where does the story end up?</p></td></tr></tbody></table></div>
+            </li></ol></div></div>
+        <div class="task" title="Making the first story &quot;sticky&quot;"><p class="title"><b>Making the first story "sticky"</b></p><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Click the first story we created ("Drupal High Web site
+             Launched")</p>
+             <p>Let's say we want that story to stay at the top for awhile. This is known as "sticky" in Drupal.</p>
+            </li><li class="step" title="Step 2"><p>Click "Edit".</p></li><li class="step" title="Step 3"><p>Click the publishing options tab and select "Sticky at top of lists".</p></li><li class="step" title="Step 4"><p>Click Save.</p></li><li class="step" title="Step 5"><p>Go to the home page</p>
+             <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note this story comes to the top and has slightly different (theme-dependent) formatting.</p></td></tr></tbody></table></div>
+            </li></ol></div></div>
+        <div class="task" title="Removing the story from the home page"><p class="title"><b>Removing the story from the home page</b></p><div class="procedure"><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+              <p>
+              After awhile, we may not need that story so prominently highlighted, so let's take it off the home page.
+              </p>
+            </td></tr></tbody></table></div><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+            <p>This time, instead of clicking into the article in order to edit it, lets use the
+              contextual links. Notice when you rollover the article teaser on the homepage a small
+              gear appears at the top right.</p>
+          </td></tr></tbody></table></div><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Click the contextual link gear and choose "edit."</p></li><li class="step" title="Step 2"><p>Click the publishing options, deselect "Sticky" and "Promoted to home page".</p></li><li class="step" title="Step 3"><p>Click Save, and notice we are right back on the home page.</p>
+             <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note it is no longer on the home page, but where did it go?</p></td></tr></tbody></table></div></li><li class="step" title="Step 4">
+              <p>
+              Enter the URL you recorded earlier for that story (for example "localhost/drupalintro/node/1").
+              </p>
+              <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note that the story is still available</p></td></tr></tbody></table></div>
+            </li><li class="step" title="Step 5"><p>Return to the home page</p>
+          <p>As you can see, this story is still published, but where would a user find it from the home page?  Right now, the only way is thorugh a link. It is still accessible because it is published, but we need to link to it or something so visitors can get to it.</p>
+            <p>What if it were unpublished?  What if we don't have the link handy?  How do we as content editors find it later? We'll discuss that later...</p>
+           </li></ol></div></div>
+      </div>
+      <div class="section" title="Static pages, the Basic Page content type"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e362"></a>Static pages, the Basic Page content type</h2></div></div></div>
+        
+          <div class="task" title="Creating an &quot;About Us&quot; page."><p class="title"><b>Creating an "About Us" page.</b></p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>This will be a placeholder for the typical "about us" page most
+             websites have.</p></td></tr></tbody></table></div><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Click Add Content, Basic page</p></li><li class="step" title="Step 2"><p>Create the page as follows:</p>
+                <p>Title = <strong class="userinput"><code>About Us</code></strong></p>
+                <p>Body = <strong class="userinput"><code>Placeholder for an about us page.</code></strong></p>
+             </li><li class="step" title="Step 3"><p>Click the "Publishing Options" tab</p>
+              <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note the difference from the story type - it is not promoted to home
+                page by default.  We'll promote it for now just so we can see it, but we
+                probably wouldn't want our about us page to be in our "news" section.</p></td></tr></tbody></table></div>
+             </li><li class="step" title="Step 4"><p>Change publishing options to "Promoted to home page" (and make sure it is "published" too!).</p></li><li class="step" title="Step 5"><p>Save the page.</p></li><li class="step" title="Step 6"><p>Go to the home page.</p>
+               <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note the differences vs. the story type we used before. There is no
+                user/date/time displayed. This makes sense for static content that will always
+              be there, but there is a way to control this behavior.</p></td></tr></tbody></table></div>
+            </li></ol></div></div>
+          <p>So what's the deal with stories having the date and username posted
+           displayed, and "page" content types not having it?  Those are called Post
+           Settings.  You can control them, but it is in an odd place...</p>
+      </div>
+      <div class="section" title="Content Type Settings"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e390"></a>Content Type Settings</h2></div></div></div>
+       
+        <div class="task"><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1">
+            <p>Don't change anything on this form right now, let's just explore.</p><p>Click Structure, Content Types, then click the "Edit" link next to the Basic Page content
+              type.</p>
+             <p>There you will see a set of tabs at the bottom of the screen. Click the "Dispay
+              settings" tab. Notice that you can choose to display the author and date information.
+              Do nt change anything here. </p>
+           </li><li class="step" title="Step 2">
+            <p>Click the "Submission form settings" tab. Here you can change the title of the
+              "title field" as well as control the preview button. </p>
+          </li><li class="step" title="Step 3">
+            <p>Click the "Publishing options" tab. Here you can set the default options for the
+              checkboxes in the "Publishing options" on the node edit form.</p>
+          </li><li class="step" title="Step 4">
+            <p>Click the "Comment settings" tab. Here you can control comments.</p>
+          </li><li class="step" title="Step 5">
+            <p>Click the "Menu settings" tab. Here you can control menus.</p>
+          </li></ol></div></div>
+      </div>
+      <div class="section" title="Our First Menu! A Menu Preview"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e406"></a>Our First Menu! A Menu Preview</h2></div></div></div>
+       
+         <div class="task"><div class="tasksummary">Hmm, that "About Us" page really doesn't belong in the "river of
+           news" on our home page.  How would a user typically access an "About Us" page?
+          Of course, through a menu. Let's see one way to do that.</div><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Click the contextual links "gear" icon and choose "edit."</p></li><li class="step" title="Step 2"><p>Click the "Menu Settings" tab and check the "Provide a menu link" box.</p></li><li class="step" title="Step 3"><p>Put "About Us" as the menu title link</p>
+              <p>Note, but don't change, the default menu it will go on.  Also, don't
+               worry about the "weight" option for now.</p>
+            </li><li class="step" title="Step 4"><p>Go down to the "Publishing Options", and turn off "Promoted to Front Page"</p></li><li class="step" title="Step 5">
+            <p>Save the page. </p>
+            <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+              <p>So it isn't in the river of news now. Can you find the menu choice where it is
+                now accessible? This is the default "Primary Menu" and it's positioning is based on
+                where the default Drupal "Bartik" theme puts the primary menu. As we'll see later,
+                other themes may display menus very differently. More on menus later!</p>
+            </td></tr></tbody></table></div></li></ol></div></div>
+        <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+          <p>Catchup Point! To catch up to this point apply Demo snapshot
+          "03-Completed_Content_Creation" (Administration, Site Building, Demonstration Site, Reset
+          Site)</p>
+        </td></tr></tbody></table></div>
+      </div>
+    </div>
+    <div class="chapter" title="Chapter 4. Sources of Content - Blocks and Modules"><div class="titlepage"><div><div><h2 class="title"><a name="d6e426"></a>Chapter&nbsp;4.&nbsp;Sources of Content - Blocks and Modules</h2></div><div><div class="abstract" title="Abstract"><p class="title"><b>Abstract</b></p>
+       <p>So what is content really?  Where does information for our pages come from.</p>
+      </div></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="drupalsitebuilding.html#d6e447">Place blocks already available from core modules</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e467">Enable another core module to get new page content</a></span></dt></dl></div>
+     	
+     <p> We've seen how to create article and page content types and where they are displayed.
+      But is that the only thing that is content? In the broadest sense content is anything visible
+      to the user.</p>
+      <p>Content can be:</p>
+      <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+              <p>Menus</p>
+          </li><li class="listitem">
+              <p>Posted Content (stories, pages, other types we'll make)</p>
+          </li><li class="listitem">
+              <p>User comments on stories (when enabled)</p>
+          </li><li class="listitem">
+              <p>"Theme content" and such like site title, footer, site slogan, others</p>
+          </li><li class="listitem">
+              <p>"Blocks" provided by modules (or created manually by you).  An example
+              is the user login block displayed when you go to a site without logging in.
+             If you install new modules they may add additional blocks that you can use!</p>
+          </li><li class="listitem">
+              <p>Contributed modules like Views may even allow you to make your own
+               advanced block content without programming.</p>
+          </li></ol></div>
+      <p>Let's take a look at how blocks may be provided by modules.</p>
+     <div class="section" title="Place blocks already available from core modules"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e447"></a>Place blocks already available from core modules</h2></div></div></div>
+        
+        <div class="task"><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Go to Structure, Blocks</p>
+            <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note the items already there in the default positions as placed by
+            Drupal install.  These blocks are all supplied by core modules enabled by
+            default.  Note there are a few that aren't placed anywhere yet.  Let's place
+            a couple.</p></td></tr></tbody></table></div>
+           </li><li class="step" title="Step 2"><p>Place "Who's Online", then place "Who's New" in sidebar first.</p></li><li class="step" title="Step 3"><p>If necessary, select "None" for the "Demo Site Reset" block.</p></li><li class="step" title="Step 4"><p>Try dragging them around using the drag handles!</p></li><li class="step" title="Step 5"><p>Save.</p></li><li class="step" title="Step 6"><p>Return to the home page</p>
+              <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note the new blocks displayed on the home page.</p></td></tr></tbody></table></div>
+            </li></ol></div></div>
+     </div>
+     <div class="section" title="Enable another core module to get new page content"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e467"></a>Enable another core module to get new page content</h2></div></div></div>
+      
+      <div class="task" title="Enable the new modules"><p class="title"><b>Enable the new modules</b></p><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Go to Modules in the Toolbar</p></li><li class="step" title="Step 2"><p>Tpye "poll" in the filter list field</p></li><li class="step" title="Step 3"><p>Enable the Poll Module</p></li><li class="step" title="Step 4"><p>Click Save Configuration</p></li></ol></div></div>
+      <div class="task" title="Make a Poll"><p class="title"><b>Make a Poll</b></p><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Choose "Add Content" from the gray shortcuts bar.</p>
+            <p>Hey look, a new content type (poll) is available ;)  Not all modules create
+            new content types, but some do.</p></li><li class="step" title="Step 2"><p>Create a new poll as follows:</p>
+            <p>Title = What is your favorite class this year?</p>
+            <p>Choice 1 = <strong class="userinput"><code>Drupal Intro</code></strong></p>
+            <p>Choice 2 = <strong class="userinput"><code>Theming 101</code></strong></p>
+            <p>Choice 3 = <strong class="userinput"><code>Ninja Development</code></strong></p>
+          </li><li class="step" title="Step 3"><p>Save the Poll</p>
+            <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Don't vote on it yet!</p></td></tr></tbody></table></div>
+          </li><li class="step" title="Step 4"><p>Go to the home page</p>
+           <p>Note the poll appears on our home page in the "river of
+            news".</p>
+           <p>But what if we want the poll to appear on the side somewhere?</p>
+          </li><li class="step" title="Step 5"><p>Go to Structure, Blocks</p>
+            <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note the new block available for "Most Redcent Poll" (another gift
+            from the poll module).</p>
+            </td></tr></tbody></table></div>
+          </li><li class="step" title="Step 6"><p>Add the "Most Recent Poll" block to the second sidebar</p></li><li class="step" title="Step 7"><p>Save Configuration</p></li><li class="step" title="Step 8"><p>Return to the home page</p>
+           <p>Hey there's our poll on the right side!  Don't vote on it yet ;)</p>
+           <p>But now we don't need it in the river of news anymore. Do you remember
+            how to remove it from there, but still leave it published?</p>
+          </li><li class="step" title="Step 9"><p>Edit the "What is your favorite class this year poll?"</p></li><li class="step" title="Step 10"><p>Click the publishing options tab and deselect the "Published to front page" option.</p></li><li class="step" title="Step 11"><p>Save, then return to the home page.</p>
+            <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note that the Poll is no longer in the "river of news", but since
+              we have placed the most recent poll block it is still displayed in the side
+              bar - just what we wanted!</p></td></tr></tbody></table></div>
+          </li></ol></div></div>
+        <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+          <p>Catchup Point! To catch up to this point apply Demo snapshot
+          "04-Completed_Sources_of_Content"</p>
+        </td></tr></tbody></table></div>
+     </div>
+    </div>
+    <div class="chapter" title="Chapter 5. Roles, Permissions, and Visibility"><div class="titlepage"><div><div><h2 class="title"><a name="d6e525"></a>Chapter&nbsp;5.&nbsp;Roles, Permissions, and Visibility</h2></div><div><div class="abstract" title="Abstract"><p class="title"><b>Abstract</b></p>
+       <p>Next we'll learn how users are categorized into "roles", how Drupal handles
+        permissions, and how we can affect visibility of page elements by role as well.</p>
+      </div></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="drupalsitebuilding.html#d6e530">Roles and Permissions</a></span></dt><dd><dl><dt><span class="section"><a href="drupalsitebuilding.html#d6e532">An Anonymous User</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e545">Administering Permissions and User/1</a></span></dt></dl></dd><dt><span class="section"><a href="drupalsitebuilding.html#d6e568">Visibility by Role (and path...)</a></span></dt></dl></div>
+     	
+     <div class="section" title="Roles and Permissions"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e530"></a>Roles and Permissions</h2></div></div></div>
+       
+       <div class="section" title="An Anonymous User"><div class="titlepage"><div><div><h3 class="title"><a name="d6e532"></a>An Anonymous User</h3></div></div></div>
+         
+       <div class="task"><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Log out.</p>
+          <p>When logged out we are treated by Drupal as the "anonymous" user.  Note
+           that we can't vote on the poll now. This is the default permission for
+           anonymous users as set by the poll module.  However, the poll module does
+           support anonymous user voting (it uses ip address to avoid dupes) if that is
+           what you want.  So how do we do that? </p></li><li class="step" title="Step 2"><p>Log back in as "demo" (pw: demo11)</p></li><li class="step" title="Step 3"><p>Go to the home page and vote on the poll</p>
+           <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note how it displays the results after you vote.  Now on to the roles and permissions.</p></td></tr></tbody></table></div></li></ol></div></div>
+      </div>
+      <div class="section" title="Administering Permissions and User/1"><div class="titlepage"><div><div><h3 class="title"><a name="d6e545"></a>Administering Permissions and User/1</h3></div></div></div>
+         
+       <div class="task"><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Go to People, Permissions</p>
+          <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note that anonymnous, authenticated &amp; administrator user roles are there automatically and
+                  can't be deleted.</p></td></tr></tbody></table></div>
+          <p>What other roles might a typical site need/want? Editor? Member? Intern? Legal?
+                etc.</p>
+         </li><li class="step" title="Step 2"><p>Look for permissions for the Poll Module</p>
+          <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note: It is common for modules to add permissions so this is a good
+           place to check after installing modules.  It is also a very common thing to
+           look for if a module's features don't work as you expect.</p></td></tr></tbody></table></div>
+         <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>While we're here, also note the Node section of permissions.  Each
+           content type gets its own set of add/edit/delete permissions which is important
+         to remember when you start creating additional content types (which we'll learn
+         to do later).  A good reference on this topic can be found at
+         <a class="ulink" href="http://gotdrupal.com/videos/understanding-Drupal-permissions" target="_top">http://gotDrupal.com/videos/understanding-Drupal-permissions</a></p></td></tr></tbody></table></div>
+          <p>Note that neither anonymous nor authenticated user roles have
+            permissions to vote on polls. So even if new users register they won't be able
+            to vote on the poll at the moment.  Hmm, but didn't we just vote on a poll?  There
+            is something not obvious from this screen that requires explanation. The reason we are able to vote here is because the very first user you create during installation (known as user/1, and in Drupal 7 as the "site maintenance account") has special permissions.  User/1 automatically has all available permissions by definition.  You'll note that as a result user/1 doesn't even appear on this screen.</p>
+           <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Another important note here - User/1 is also the only user who can
+           run update.php which is needed when upgrading modules or Drupal .  In Drupal 
+           7 this user is called the Site Maintenance user to further clarify this special
+           role.</p></td></tr></tbody></table></div>
+          </li><li class="step" title="Step 3"><p>Select the permission to allow authenticated users to "vote on
+            polls", then click "Save Permissions".</p></li><li class="step" title="Step 4"><p>Return to the home page by closing the overlay.</p></li></ol></div></div>
+      </div>
+     </div>
+     <div class="section" title="Visibility by Role (and path...)"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e568"></a>Visibility by Role (and path...)</h2></div></div></div>
+       
+       <div class="task"><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Log out.</p>
+          <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note that even anonymous users can currently see the "current poll"
+            block on the home page.</p></td></tr></tbody></table></div></li><li class="step" title="Step 2"><p>Click on the "Welcome Returning Students" story title.</p>
+          <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note that even when viewing a full story (node) page we can see all of the blocks on the right.</p></td></tr></tbody></table></div>
+          <p>What if we want the "Who's online?", "Who's logged in?", and Poll block to
+          only show up on the home page?  We'll see that this is controlled by block
+          visibility.</p></li><li class="step" title="Step 3"><p>Log back in as admin</p></li><li class="step" title="Step 4"><p>Go to Structure, Blocks</p></li><li class="step" title="Step 5"><p>Find the "Most Recent Poll" block and click
+           "Configure"</p><p>Take the time to review the block settings</p><p>Block Title, User specific visibility settings, Role specific visibility settings, Page specific visibility settings</p></li><li class="step" title="Step 6"><p>Select "authenticated users" &amp; "administrator" for Role specific visibility.</p></li><li class="step" title="Step 7"><p>For page specific visibility settings, select "Show only on the
+           listed pages", then enter "&lt;front&gt;" in the box (as per the comment below
+         the box!).</p></li><li class="step" title="Step 8"><p>Repeat the previous two steps for the "Who's Online?", and "Who's
+           New?" blocks.</p></li><li class="step" title="Step 9"><p>Go to the home page.</p>
+          <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note all three display</p></td></tr></tbody></table></div></li><li class="step" title="Step 10"><p>Click on the "Welcome Returning Students" story title</p>
+          <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note that none of the blocks display as we aren't on the home
+            page.</p></td></tr></tbody></table></div></li><li class="step" title="Step 11"><p>Return to the home page</p></li><li class="step" title="Step 12"><p>Log out</p>
+          <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note that none display as we aren't authenticated
+            users.</p></td></tr></tbody></table></div></li><li class="step" title="Step 13"><p>Log in</p><p>Bonus question: Who can tell what is happening in
+          the left column of our Web site?  What causes it to show a login page when we
+          logout and a "navigation" menu in the same spot when we log in?  If you can
+          answer this then I know you understand the basics of blocks and
+          visibility!</p></li></ol></div></div>
+       <div class="sidebar" title="What to look for after enabling new modules"><div class="titlepage"><div><div><p class="title"><b>What to look for after enabling new modules</b></p></div></div></div>
+         
+         <p>We've seen that modules that we enable may add a number of features to our
+          site.  These are good pages to visit after enabling or adding a new module to
+          check for new functionality or settings (of course you should also read any
+          "readme" files or documentation available with a module).</p>
+         <div class="variablelist"><dl><dt><span class="term">People, Permissions</span></dt><dd>
+				<p>
+                  Check here to see if there are new, module specific, permissions that
+                  need to be set.
+                </p>
+				</dd><dt><span class="term">Content or Structure, Content Types</span></dt><dd>
+                  <p>
+                    See if the new module added any new content types.
+                  </p>
+				</dd><dt><span class="term">Modules</span></dt><dd>
+                 <p> See what other settings screens this module may have defined. Next to each
+                enabled module you will see a configuration link. </p>
+				</dd><dt><span class="term">Structure, Menus</span></dt><dd>
+                 <p>
+                  We haven't looked at this screen yet, but this is a good place to check
+                  if the module has created new menus.
+                </p>
+				</dd><dt><span class="term">INSTALL.txt or README.txt</span></dt><dd>
+                 <p>
+                  If this is a contrib module (we'll be looking at some shortly), then
+                  look in the folder for the module and look for INSTALL.txt or
+                  README.txt.  You should review these even before enabling a new
+                  module.
+                </p>
+				</dd></dl></div>
+       </div>
+        <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+          <p>Catchup Point!  To catch up to this point apply Demo snapshot
+           "05_RolesPermissionsBlockVisibility" (Administration, Site Building, Demonstration Site, Reset
+           Site)</p>
+        </td></tr></tbody></table></div>
+     </div>
+    </div>
+    <div class="chapter" title="Chapter 6. Menus!"><div class="titlepage"><div><div><h2 class="title"><a name="d6e638"></a>Chapter&nbsp;6.&nbsp;Menus!</h2></div><div><div class="abstract" title="Abstract"><p class="title"><b>Abstract</b></p>
+       <p>So we did a little bit with menus ealier in the class (note the "About Us"
+        menu).  We'll now talk more about menus and how they are created/managed.</p>
+      </div></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="drupalsitebuilding.html#d6e643">Add and edit menus while creating content</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e703">Managing Menus</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e753">Multi-Level Menus</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e798">Displaying Menus as Blocks</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e819">Menu Items Created by Modules</a></span></dt></dl></div>
+     	
+     <div class="section" title="Add and edit menus while creating content"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e643"></a>Add and edit menus while creating content</h2></div></div></div>
+      
+      <p>We've already seen that one way to add something to the menu is to do so while
+       creating or editing content (nodes).</p>
+      <div class="task"><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Click "About Us"</p></li><li class="step" title="Step 2"><p>Edit It</p></li><li class="step" title="Step 3"><p>Click the Menu Settings tab and note how we've currently added a Menu Link Title and put it on
+              the primary menu.</p><p>Let's add
+          something else to the primary menu. (We'll create a page with links to offsite
+          "pages of interest".</p></li><li class="step" title="Step 4"><p>Click Add Content, then Basic Page</p></li><li class="step" title="Step 5"><p>Create as follows:</p>
+         <p>Title = <strong class="userinput"><code>Offsite Resources</code></strong></p>
+         <p>Body = <strong class="userinput"><code><span class="markup">&lt;ul&gt;&lt;li&gt;&lt;a href="www.Drupal .org"&gt;Drupal Home Page&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="http://groups.Drupal .org"&gt;Drupal Groups&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</span></code></strong></p></li><li class="step" title="Step 6"><p>Now, click "Menu Settings," check "Provide a menu link" and set as follows</p>
+          <p>Menu Link Title = <strong class="userinput"><code>Resources</code></strong></p>
+          <p>Parent Item = pick "Main Menu"</p>
+          <p>Weight = <strong class="userinput"><code>0</code></strong></p>
+          </li><li class="step" title="Step 7"><p>Under "Publishing Options", ensure it is published, but not promoted
+          to home page.</p></li><li class="step" title="Step 8">
+            <p>Save</p>
+          </li><li class="step" title="Step 9"><p>Go to home page</p>
+         <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note the addition to the primary menu.  However, we'd really like to
+         have "About Us" always be the last menu.</p></td></tr></tbody></table></div>
+        </li></ol></div></div>
+      <p>Understanding "weights" is our next step.</p>
+      <p>Currently the Primary menu is simply displaying items in alpha order.</p>
+      <div class="task"><div class="procedure"><p>Menus are one example where weight is used.  You'll see others as you get more
+      experienced.  Let's try something.</p><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Click "About Us"</p></li><li class="step" title="Step 2"><p>Edit</p></li><li class="step" title="Step 3"><p>Expand "Menu Settings" (if necessary) and note "Weight" (zero)</p></li><li class="step" title="Step 4"><p>Do the same thing for the "Resources" menu item (i.e. edit it and look
+        at the Weight value)</p></li><li class="step" title="Step 5"><p>Click "About Us"</p></li><li class="step" title="Step 6"><p>Edit</p></li><li class="step" title="Step 7"><p>Change the weight to fifty (50)</p></li><li class="step" title="Step 8"><p>Save</p>
+         <p>So what happened to the menu at the top?</p>
+         <p>Because it is "heavier", it sinks to the bottom.</p>
+         <p>This concepts of weights seems rather user unfriendly.  Is there a better
+          way?  With the advent of javascript in Drupal yes.</p></li></ol></div></div>
+      </div>
+      <div class="section" title="Managing Menus"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e703"></a>Managing Menus</h2></div></div></div>
+       
+        <div class="task"><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Go to Structure, Menus</p>
+           <p>Note the default menus here.  Brief descriptions:</p>
+            <div class="variablelist"><dl><dt><span class="term">Main Menu</span></dt><dd>
+                    <p>This is most commonly used as your site's main menu. It's display position
+                    is controlled by the theme (most commonly). When you add a content item to the
+                    menu this is typically the default for where it will go. </p>
+                   </dd><dt><span class="term">Management</span></dt><dd>
+                   <p>Contains only links to administative tasks. </p>
+                   </dd><dt><span class="term">Navigation</span></dt><dd>
+                   <p> This menu contains links intended for site visitors. Links are added to
+                    this menu automatically by some modules.</p>
+                   </dd><dt><span class="term">User Manu</span></dt><dd>
+                  <p>Links related to teh current user's account (including Logout)</p>
+                </dd></dl></div>
+             <p>Let's see how to add something manually to an existing menu.  For
+              example an offsite choice.</p>
+             </li><li class="step" title="Step 2"><p>Click "List Links" next to Main Menu</p>
+               <p>Note the menu choices there which we created from previous posts (and
+              home).</p></li><li class="step" title="Step 3"><p>Click "Add Link"</p>
+               <p>This will simply be a link to Drupal .org.  It is offsite so we need
+                a full url (note in comment, the format for internal links).</p></li><li class="step" title="Step 4"><p>Create as follows:</p>
+               <p>Path: <strong class="userinput"><code>http://drupal.org</code></strong></p>
+               <p>Menu Link Title: <strong class="userinput"><code>Drupal Home</code></strong></p>
+               <p>Description: <strong class="userinput"><code>Go to the home of Drupal!</code></strong></p>
+               <p>Note, but don't change the other items.</p>
+              </li><li class="step" title="Step 5"><p>Save</p>
+               <p>We wan't resources first.  We learned about weights before, but there
+                is an easier way here...</p></li><li class="step" title="Step 6"><p>Drag "Home" to the top and "Resources" above "Drupal Home" using the drag handle.</p>
+               <p>Note the asterisk and the note about how this won't work till saved.
+              This is a common UI pattern with anything in Drupal that would be sortable, or
+              placeable, via drag and drop.  "Under the hood" weights are being set to
+              effect this, but you don't need to worry about that.</p></li><li class="step" title="Step 7"><p>Click "Save Configuration"</p>
+             <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>If you are interested, edit each item in turn.  As you'll be able
+            to see Drupal plays fairly loose with the weights simply starting from the
+            lightest (-50) and working down.</p></td></tr></tbody></table></div></li></ol></div></div>
+      </div>
+      <div class="section" title="Multi-Level Menus"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e753"></a>Multi-Level Menus</h2></div></div></div>
+        
+        <div class="abstract" title="Abstract"><div class="titlepage"></div>What about multi-level menus?  These may be displayed as flyout menus
+         (javascript or css hover based), or the submenu may appear only when you click on
+        the main menu.  This is a potential source of confusion in Drupal which we will
+        remedy now.</div> 
+       <div class="task" title="Create an About Us/Staff Page"><p class="title"><b>Create an About Us/Staff Page</b></p><div class="tasksummary">We'll create an about us page intended to appear under the "About
+          Us" menu item.</div><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Select Create Content, then Page</p></li><li class="step" title="Step 2"><p>Enter as follows:</p>
+            <p>Title: <strong class="userinput"><code>Staff</code></strong></p>
+             <p>Menu Settings:</p>
+             <p>- Menu Link Title = <strong class="userinput"><code>Staff</code></strong></p>
+             <p>- Parent Item = <strong class="userinput"><code>About Us</code></strong></p>
+             <p>Body: <strong class="userinput"><code><span class="markup">&lt;ul&gt;&lt;li&gt;Dries&lt;/li&gt;&lt;li&gt;Webchick&lt;/li&gt;&lt;li&gt;chx&lt;/li&gt;&lt;li&gt;merlinofchaos&lt;/li&gt;&lt;/ul&gt;</span></code></strong></p>
+           </li><li class="step" title="Step 3"><p>Save</p></li><li class="step" title="Step 4"><p>Go to the home page</p></li><li class="step" title="Step 5"><p>Click "About Us"</p>
+            <p>Where is the staff page?</p>
+           </li></ol></div></div>
+       <div class="task" title="Display our submenu!"><p class="title"><b>Display our submenu!</b></p><div class="tasksummary">So Drupal is not displaying our submenu choice?  To make Drupal 
+          display our second level menu choice we'll need to change menu settings
+          - let's see...</div><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Go to Structure, Menus, then click "Settings" at the top right</p>
+           <p>[Describe these options]</p></li><li class="step" title="Step 2"><p>Change "Source for Secondary Links" to "Main Menu"</p>
+           <p>[The help text describes what's going on here.]</p></li><li class="step" title="Step 3"><p>Go to the home page</p></li><li class="step" title="Step 4"><p>Click on "About Us"</p>
+           <p>[Note the display of the "Staff" at the top right choice. Other themes may (and do)
+              display differently.]</p></li><li class="step" title="Step 5"><p>Click on "Staff" link to go to the staff page.</p></li></ol></div></div>
+      </div>
+      <div class="section" title="Displaying Menus as Blocks"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e798"></a>Displaying Menus as Blocks</h2></div></div></div>
+        
+        <div class="task" title="Displaying Menus as Blocks"><p class="title"><b>Displaying Menus as Blocks</b></p><div class="tasksummary">
+          <p> As we've seen, themes like the default Bartik may display the primary and/or
+            secondary menus in particular places. Another option is to display menus in blocks.
+            Drupal creates a block for each top level menu automatically.  </p>
+        </div><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Go to Structure, Blocks</p></li><li class="step" title="Step 2"><p>Scroll down to the disabled blocks</p>
+             <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note that Main Menu and User Menu are available.</p></td></tr></tbody></table></div>
+            </li><li class="step" title="Step 3"><p>Assign "User Menu" to Footer (above "Powered by Drupal)</p></li><li class="step" title="Step 4"><p>Return to home page and note display</p>
+             <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>So between having main menu and user menus placed by theme, and having menus displayed in
+                blocks you have some options. I'll say that contributed themes have a great variety
+                in how they choose to display menus. This can make selecting a theme a challenge for
+                those not comfortable theming their site themselves or making major modifications to
+                existing themes.</p></td></tr></tbody></table></div>
+            </li><li class="step" title="Step 5">
+            <p>Click the contextual links gear all the way to the right of the User Menu and
+              choose "configure block." Now enter &lt;none&gt; in the Block title field and click Save
+              Block.</p>
+          </li></ol></div></div>
+      </div>
+      <div class="section" title="Menu Items Created by Modules"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e819"></a>Menu Items Created by Modules</h2></div></div></div>
+        
+        <div class="task" title="Looking for Menus Created by Modules"><p class="title"><b>Looking for Menus Created by Modules</b></p><div class="tasksummary">
+          <p>One thing to keep an eye out for is that new modules you enable may create menu
+            choices as part of their install. Often these menu items are created in a disabled state
+            and put on the "Navigation" menu by default. This is so you can readily find them and
+            move them wherever you want. Let's find a couple. </p>
+        </div><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Go to Structure, Menus</p></li><li class="step" title="Step 2"><p>Click on "list links" next to Navigation</p>
+             <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note the "Polls" menu (created as part of Poll module)</p></td></tr></tbody></table></div>
+            </li><li class="step" title="Step 3"><p>Click "Edit" for "Polls" menu</p></li><li class="step" title="Step 4"><p>Select "enabled"</p></li><li class="step" title="Step 5"><p>Change parent menu item to "Main Menu"</p></li><li class="step" title="Step 6"><p>Click "Save"</p>
+              <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note Main menu display</p></td></tr></tbody></table></div>
+              <p>Oops, we want "About Us" last again</p>
+            </li><li class="step" title="Step 7"><p>Drag "Polls" above "About us"</p></li><li class="step" title="Step 8"><p>Click "Save Configuration"</p></li></ol></div></div>
+      </div>
+        <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+          <p>Catchup Point!  To catch up to this point apply Demo snapshot
+           "06_Menus" (Administration, Site Building, Demonstration Site, Reset
+           Site)</p>
+        </td></tr></tbody></table></div>
+    </div>
+    <div class="chapter" title="Chapter 7. Taxonomy"><div class="titlepage"><div><div><h2 class="title"><a name="d6e849"></a>Chapter&nbsp;7.&nbsp;Taxonomy</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="drupalsitebuilding.html#d6e854">Create a Taxonomy for "Sections"</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e931">Vocabulary in Action</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e947">Taxonomy with More Content</a></span></dt></dl></div>
+      
+      <div class="abstract" title="Abstract"><div class="titlepage"></div>
+       <p>Taxonomy is a big subject.  Basically it is a way to categorize or tag the content as you submit it.  It can be used in many ways.  We'll use it in two relatively simple ways for this site.  Taxonomy is composed of vocabularies.  If your site were about computers you might have one vocabulary for types of computer (laptop, desktop, server), another for default operating system (MAC, Win, Unix, Linux), etc.  You may want some vocabularies to be single select, others you may want to allow the user to choose more than one (a desktop that can run either Linux or Windows).  You may even want the user to define their own terms (free tagging like on Flickr).</p>
+      </div>
+      <div class="section" title="Create a Taxonomy for &quot;Sections&quot;"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e854"></a>Create a Taxonomy for "Sections"</h2></div></div></div>
+        
+        <div class="task" title="Create the Taxonomy"><p class="title"><b>Create the Taxonomy</b></p><div class="tasksummary">First we'll create the taxonomy.  This taxonomy will be for tagging
+          stories with what "news section" they belong in.</div><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Structure, Taxonomy</p></li><li class="step" title="Step 2"><p>Select "Add Vocabulary"</p></li><li class="step" title="Step 3"><p>Fill in options as follows</p>
+              <p>Vocabulary Name = <strong class="userinput"><code>News Section</code></strong></p>
+              <p>Description = <strong class="userinput"><code>Which news section should this story be published in?</code></strong></p>
+            </li><li class="step" title="Step 4"><p>Save</p></li></ol></div></div>
+        <div class="task" title="Next we&#39;ll add terms to our new vocabulary."><p class="title"><b>Next we'll add terms to our new vocabulary.</b></p><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Click "Add Terms"</p></li><li class="step" title="Step 2"><p>Fill in as follows</p>
+              <p>Term Name = <strong class="userinput"><code>Sports</code></strong></p>
+              <p>Description = <strong class="userinput"><code>Sports news at Drupal High - keep up with the "Blue Drops"!</code></strong></p>
+            <p>Everything else can stay the same.</p>
+             </li><li class="step" title="Step 3"><p>Click save</p>
+             <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note that it automatically presents another term add screen.</p></td></tr></tbody></table></div></li><li class="step" title="Step 4"><p>Add additional terms as follows</p>
+              <p>Term Name = <strong class="userinput"><code>Scholastic</code></strong></p>
+              <p>Description = <strong class="userinput"><code>Learn by the Drop - hey it's why you're here!</code></strong></p>
+              <p>Term Name = <strong class="userinput"><code>Clubs</code></strong></p>
+              <p>Description = <strong class="userinput"><code>The extracurricular side of Drupal </code></strong></p>
+              <p>Term Name = <strong class="userinput"><code>Arts and Music</code></strong></p>
+              <p>Description = <strong class="userinput"><code>Drupal Drupal Drupal Drupal Druuuupal...</code></strong></p>
+              <p>Term Name = <strong class="userinput"><code>General Announcements</code></strong></p>
+              <p>Description = <strong class="userinput"><code>A home for all announcements</code></strong></p></li><li class="step" title="Step 5"><p>Click on the "List" tab at the top of the overlay to go back to the list of terms for this
+              vocabulary</p>
+             <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note that on the "List" screen they can be manually dragged and dropped or reset to Alpha!</p></td></tr></tbody></table></div>
+            </li><li class="step" title="Step 6"><p>Drag "General Announcement" so it is at the top of the list.</p></li><li class="step" title="Step 7"><p>Save</p></li><li class="step" title="Step 8">
+            <p>Its time to attach this vocabulary to the Article content type. Go to Structure,
+              Content types and click "manage fields" next to Article</p>
+          </li><li class="step" title="Step 9">
+            <p>Enter the following under "Add new field"</p>
+            <p>Label: <strong class="userinput"><code>Sections</code></strong></p>
+            <p>field_: <strong class="userinput"><code>sections</code></strong></p>
+            <p>field type: <strong class="userinput"><code>Term reference</code></strong></p>
+            <p>Form element: <strong class="userinput"><code>Select list</code></strong></p>
+            <p>Before clicking "Save", use the drag handle to move the "Add new field" form above
+              "Tags". Now click "Save"</p>
+          </li><li class="step" title="Step 10">
+            <p>On the Field Settings form, choose "News Section" as the vocabulary and click
+              "Save field setting"</p>
+          </li><li class="step" title="Step 11">
+            <p>For now, keep all the settings on teh next form as-is and click "Save settings"
+              and then go to the home page.</p>
+          </li></ol></div></div>
+      </div>
+      <div class="section" title="Vocabulary in Action"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e931"></a>Vocabulary in Action</h2></div></div></div>
+        
+        <div class="task" title="Edit the &quot;Welcome Back&quot; story to include vocabulary terms"><p class="title"><b>Edit the "Welcome Back" story to include vocabulary terms</b></p><div class="tasksummary">Now that we've created the vocabularies (and applied them to our
+           story type) let's see how that works.</div><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Edit the Welcome Back story</p></li><li class="step" title="Step 2"><p>Note the two taxonomy fields. Modify as follows</p></li><li class="step" title="Step 3"><p>Select "General Announcements"</p></li><li class="step" title="Step 4"><p>Save story. If you are on teh home page, click the read more link on the "Welcome" story. </p>
+             <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note the link to "General Announcements" on the bottom of story.  Any terms selected for any vocab (or free-tagging for that matter) will show up here.  If you click the term it shows all content (of any type) with that term on it in a teaser style list.  Note the browser address and that the term name and description shows up at the top of the list.  Not very impressive for one story!</p></td></tr></tbody></table></div>
+            </li></ol></div></div>
+      </div>
+      <div class="section" title="Taxonomy with More Content"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e947"></a>Taxonomy with More Content</h2></div></div></div>
+        
+        <div class="task" title="See how Taxonomy loooks with more content"><p class="title"><b>See how Taxonomy loooks with more content</b></p><div class="tasksummary">Let's add more content so we can see what taxonomy does to our
+           site.  We'll be applying a demo "snapshot" so we don't have to do this
+           manually.  Much of the content we'll see was generated by the Devel module
+           "generate" feature (all the lorem ipsum stuff).  That is beyond the scope of
+           this class, but pretty easy to figure out.</div><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Click the "Snapshots" shortcut we created earlier in the gray shortcuts bar.</p></li><li class="step" title="Step 2"><p>Select the "Reset" tab (top right)</p></li><li class="step" title="Step 3"><p>Select "07b_ Completed_Generated_Content"</p></li><li class="step" title="Step 4"><p>Click "Reset" and confirm</p></li><li class="step" title="Step 5"><p>Retun to home page</p>
+              <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>You'll see a lot of "nonsense" content (latin) generated by devel module. I also added another
+                taxonomy for "school year"</p></td></tr></tbody></table></div>
+            </li></ol></div></div>
+        <div class="task" title="Check out the new content and taxonomy"><p class="title"><b>Check out the new content and taxonomy</b></p><div class="tasksummary">Now let's see how Drupal behaves with a decent amount of content.</div><div class="procedure"><ul class="procedure"><li class="step" title="Step 1"><p>Open the "Welcome" story and click the link for "General Announcements." Note the default
+              paging of content.</p></li></ul></div></div>
+      </div>
+      <div class="sidebar" title="Managing Your Content!"><div class="titlepage"><div><div><p class="title"><b>Managing Your Content!</b></p></div></div></div>
+       
+        <p>
+        A brief sidebar about managing content as your site grows.  How would you quickly
+        find content that isn't currently published? or happens to be tagged with
+        a specific term?  You may be looking to delete something, or perhaps promote it to
+        the home page.
+        </p>
+        <p>Go to Find content in the shortcut bar. Here you will find a query page that allows
+        you to look for content by specific parameters. When you find it, it allows for some bulk
+        operations such as promoting to home page, etc.</p>
+        <p>It is beyond the scope of this intro session, but you'll quickly find the
+         limitations of this page as your site grows.  See resources for this course for
+         contrib modules that expand the functionality of this page for additional bulk
+         operations and improved querying.</p>
+      </div>
+    <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+      <p>Catchup Point! To catch up to this point apply Demo snapshot "08-Completed_Taxonomy"
+      </p>
+    </td></tr></tbody></table></div>
+    </div>
+    <div class="chapter" title="Chapter 8. Themes"><div class="titlepage"><div><div><h2 class="title"><a name="d6e978"></a>Chapter&nbsp;8.&nbsp;Themes</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="drupalsitebuilding.html#d6e983">Try a New Theme (or Two)</a></span></dt></dl></div>
+      
+      <div class="abstract" title="Abstract"><div class="titlepage"></div>
+        <p>So far we've not changed the "look and feel" of our site an any significant
+        way.  What if we want a very different look to our site?  This course does NOT
+        cover how to create and modify themes.  However, we will see how to apply a theme
+       that was already created to your site and view the effects so we'll have an idea of
+      what is possible with theming.</p>
+      </div>
+      <div class="section" title="Try a New Theme (or Two)"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e983"></a>Try a New Theme (or Two)</h2></div></div></div>
+        
+        <div class="task" title="Apply a New Theme"><p class="title"><b>Apply a New Theme</b></p><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Go to Appearence</p>
+             <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note the list of available themes. Some of these are provided with Core (Stark for example),
+                others are themes that were included with the class files (available from
+                drupal.org).</p></td></tr></tbody></table></div>
+           </li><li class="step" title="Step 2"><p>Find the "Garland" theme, select "enable and set as default"</p></li><li class="step" title="Step 3"><p>Go to the home page</p></li><li class="step" title="Step 4"><p>Click the "About Us" menu at the top</p>
+              <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note where the secondary menu (the Staff link) appears. Rather different than the default
+                Garland theme.</p></td></tr></tbody></table></div>
+              <p>Let's try another.</p>
+            </li><li class="step" title="Step 5"><p>Go to Appearence</p></li><li class="step" title="Step 6"><p>Find the "Stark" theme, enable it and make it the default</p>
+            <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+              <p>Stark is a bit special. Stark has just the absolute minimum css to create a
+                three column layout. Other than that it basically has no css or theming whatsoever.
+                It is frequently used by themers who want to see what drupal core and various drupal
+                modules output in the absence of a theme.</p>
+            </td></tr></tbody></table></div></li></ol></div></div>
+        <div class="task" title="Apply our preferred theme for Ournews"><p class="title"><b>Apply our preferred theme for Ournews</b></p><div class="tasksummary">We'll now apply the theme we want for our finished site.</div><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Go to Administer, Site Building, then Themes</p></li><li class="step" title="Step 2"><p>Find the "MarinelliH" theme, enable it and make it default</p></li><li class="step" title="Step 3"><p>Click "Save Configuration"</p></li><li class="step" title="Step 4"><p>Now, find "Marinelli" in the list once more and click "settings"</p>
+             <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Some themes include additional configuration options.  In the
+               case of Marinelli specifically there is an option to have a dynamic drop
+               down menu that we want to take advantage of.</p></td></tr></tbody></table></div>
+           </li><li class="step" title="Step 5"><p>In the configure screen, first uncheck "Site slogan." Then under the "Primary menu settings"
+              section (towards the bottom), choose <strong class="userinput"><code>Mega Drop Down</code></strong> for "Which
+              kind of primary links do you want ot use" and for "Megamenu Source" set it to
+                <strong class="userinput"><code>Main menu</code></strong></p></li><li class="step" title="Step 6"><p>Click "Save Configuration"</p></li><li class="step" title="Step 7"><p>Go to the home page</p>
+             <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note the way marinelli puts both sidebars on the right.  Also
+               note the way marinelli displays the primary links menu as a drop
+               down.</p></td></tr></tbody></table></div>
+             <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>We will use Marinelli for the rest of the course.  Note that this
+               version of Marinelli includes some specific theming to support the site we
+               are building.  Creating or modifying themes beyond this is beyond the scope
+               of this class.</p></td></tr></tbody></table></div>
+           </li><li class="step" title="Step 8">
+            <p>Let's quickly fix our user menu. Go to Structure, Blocks and move the "User menu"
+              block to the "Utility (top)" region</p>
+          </li></ol></div></div>
+        <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+          <p>Catchup Point! To catch up to this point apply Demo snapshot
+          "09-Completed_Theme_Settings"</p>
+        </td></tr></tbody></table></div>
+      </div>
+    </div>
+    <div class="chapter" title="Chapter 9. Fields"><div class="titlepage"><div><div><h2 class="title"><a name="d6e1037"></a>Chapter&nbsp;9.&nbsp;Fields</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="drupalsitebuilding.html#d6e1043">Install Needed Modules</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e1065">Create a Staff Content Type</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e1336">Image styles</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e1363">Field Display Options</a></span></dt></dl></div>
+      
+      <div class="abstract" title="Abstract"><div class="titlepage"></div>
+        <p>As of Drupal 7, fields have been added to core. They allows you to provide your
+        content types with richer, more structured, data. In Drupal 6 you would have to use a
+        contrib module called CCK to acheive this and you could only use it to add fields to nodes.
+        In Drupal 7, fields can be added to nodes, users, taxonomy terms, etc.</p>
+      </div>
+      <p>Rough instructions for now.
+       Modules
+       Basic cck modules + link, node reference, user reference, date, date api, date
+       popup, date timezone, token (not sure if I need yet), advanced help.
+      </p> 
+      <div class="section" title="Install Needed Modules"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e1043"></a>Install Needed Modules</h2></div></div></div>
+        
+        <div class="task" title="Install Needed Modules"><p class="title"><b>Install Needed Modules</b></p><div class="tasksummary">
+          <p>Add the following modules to support theFields/Views portion of the course.</p>
+        </div><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Go to Modules</p></li><li class="step" title="Step 2">
+            <p>Select these modules: </p>
+            <p>Date</p>
+            <p>Date Popup</p>
+            <p>Field Collection</p>
+            <p>Advanced Help</p>
+            <p>cTools</p>
+            <p>Views</p>
+            <p>Views UI</p>
+          </li><li class="step" title="Step 3"><p>Click "Save Configuration" to enable these modules.</p></li></ol></div></div>
+        <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+          <p>Notice that Drupal automatically recognizes that the Field Collection modules
+          requires the "entity" module and notifies you that this module will be enabled as
+          well.</p>
+        </td></tr></tbody></table></div>
+      </div>
+      <div class="section" title="Create a Staff Content Type"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e1065"></a>Create a Staff Content Type</h2></div></div></div>
+        
+        <p>Our first brand new content type for the Drupal High site will be a Staff
+         content type.  We have lots of staff at our school such as teachers,
+         administrators, Department heads, etc.  We'd like to capture information about
+         staff for display purposes on the site.  We'll also need to reference staff
+         members from other content on the site.</p>
+        <div class="task" title="Create the Staff Content Type"><p class="title"><b>Create the Staff Content Type</b></p><div class="tasksummary">We'll start by creating the new content type.</div><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Go to Structure, Content Types</p></li><li class="step" title="Step 2"><p>Click "Add Content Type" to add a new type</p></li><li class="step" title="Step 3"><p>Edit the new type configuration as follows:</p>
+            <p>Name: <strong class="userinput"><code>Name</code></strong></p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+                <p>Notice that a machine name is automagically created. This is the unique
+                  idenitifier used by Drupal to allow us to export our content type and reuse it on
+                  another site or on another environment. </p>
+              </td></tr></tbody></table></div>
+            <p>Description: <strong class="userinput"><code>Capture basic information about a staff member (or student website volunteer).</code></strong></p>
+            <p>In the Submission Form Settings tab:</p>
+            <p>Title Field Label: <strong class="userinput"><code>Display Name</code></strong></p>
+            <p>Preivew before submitting: <strong class="userinput"><code>Optional</code></strong></p>
+            <p>Explanation or Submission Guidelines: <strong class="userinput"><code>Use this to capture
+              basic information about staff members (or student website volunteers) on our
+            site.</code></strong></p>
+            <p>In the Publishing options tab:</p>
+            <p>Default Options: Turn on "Published".  Turn off "Promoted to Front
+             Page". "Sticky at top of lists" and "Create a New Revision" should also be
+             off.</p>
+            <p>In the Display Settings tab:</p>
+            <p>Uncheck the display author and date information</p>
+            <p>In the Comment Settings tab:</p>
+            <p>Default Comment Setting: <strong class="userinput"><code>Hidden</code></strong></p>
+            <p>In the Menu Settings tab:</p>
+            <p>Available menus: <strong class="userinput"><code>Main Menu</code></strong></p>
+            <p>Default parent item: <strong class="userinput"><code>Staff</code></strong></p>
+           </li><li class="step" title="Step 4"><p>Click "Save and add fields" to save the new staff type</p></li></ol></div></div>
+        <div class="task" title="Add detailed Name Fields"><p class="title"><b>Add detailed Name Fields</b></p><div class="tasksummary">Although we set the Title field to be "Display Field", we probably
+          want to capture First Name, Middle Name, and Last Name as separate fields too.
+         That way we can display names in different ways, also we may need those
+         separately for sorting.  We'll create basic name fields now.</div><div class="procedure" title="Procedure 9.1. Create a First Name field"><a name="d6e1108"></a><p class="title"><b>Procedure&nbsp;9.1.&nbsp;Create a First Name field</b></p><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Towards the bottom of the current field list find the "Add New Field" row</p></li><li class="step" title="Step 2"><p>In that new field row enter <strong class="userinput"><code>First Name</code></strong> in the first box, that
+             will be the label.  Enter <strong class="userinput"><code>first_name</code></strong> in the second box. For field type select <strong class="userinput"><code>Text</code></strong>, and finally for the widget select <strong class="userinput"><code>Text Field</code></strong></p></li><li class="step" title="Step 3"><p>Now use the drag handles next to this new field row to drag it
+           just undernead the existing "Display Name" field.</p></li><li class="step" title="Step 4"><p>Click "Save"</p>
+             <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Since you added a new field a new field settings screen will
+               appear.  This allows you to set more detailed options for your new
+               field.</p></td></tr></tbody></table></div>
+           </li><li class="step" title="Step 5">
+            <p>Every type of field will ask you for different field settings. In this case the
+              text field asks for a "Max length." Enter 255 here and click "Save field
+              settings."</p>
+          </li><li class="step" title="Step 6"><p>Find and select the "Required" option.  We want the First Name
+             field to always be filled in.</p>
+             <p>We don't want to modify any other settings fields, but let's briefly
+              describe some of the options that commonly appear here and what they
+              do.</p>
+             <div class="variablelist" title="Field Options"><p class="title"><b>Field Options</b></p><dl><dt><span class="term">Label</span></dt><dd>
+                  <p>The label that will be shown on the edit form as well as when an item of
+                    this content type is displayed.</p>
+                </dd><dt><span class="term">Required</span></dt><dd>
+                  <p> You'll find this in a section of "Global Settings" that will apply to this
+                    new field in any content type you use it. Required means this field must be
+                    filled in by the user. </p>
+                </dd><dt><span class="term">Help Text</span></dt><dd>
+                  <p>
+                   Whatever you put for help text is displayed on the editing form for
+                   this content type just below the field.  This is instructions to the
+                   user on what they should be putting into this field (if needed).
+                  </p>
+                 </dd><dt><span class="term">Size of textfield</span></dt><dd>
+                  <p> How big should the form field be. </p>
+                </dd><dt><span class="term">Number of Values</span></dt><dd>
+                  <p>
+                   CCK fields can allow for multiple values.  The database implications of
+                   this (and also of using a field in more than one content type) are
+                   important.
+                  </p>
+                 </dd><dt><span class="term">Text Processing</span></dt><dd>
+                  <p>
+                   Plain Text vs. Filtered Text.  Filtered text in this case means that
+                   the user would be able to enter HTML for example.  Any user input that
+                   could have problematic input (such as HTML with scripts, etc.) has to
+                   go through a filtering process in Drupal.  If you don't need that extra
+                   overhead for a field then you'll want Plain Text.
+                  </p>
+                 </dd></dl></div>
+             <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Other Field Types</p>
+                  <p> Other field types may present different or additional options. Make sure to
+                review all options carefully to ensure you get the functionality you are looking
+                for. There are a number of field types that come with core, and there are a many
+                other field types that are made available with the installation of other modules. </p>
+             </td></tr></tbody></table></div>
+           </li><li class="step" title="Step 7"><p>Click "Save Settings" to complete the addition of the First Name field</p></li></ol></div><div class="procedure" title="Procedure 9.2. We&#39;ll create Middle Name and Last Name fields as well"><a name="d6e1160"></a><p class="title"><b>Procedure&nbsp;9.2.&nbsp;We'll create Middle Name and Last Name fields as well</b></p><ol class="procedure" type="1"><li class="step" title="Step 1"><p>If you aren't on the Manage Fields page for the Staff content type, go to Structure, Content
+              Types and click "Manage Fields" for the Staff content type.</p></li><li class="step" title="Step 2"><p>At the bottom, create another new field similar to what we just did
+              with First Name field above as follows:</p>
+              <p>New Field Label: <strong class="userinput"><code>Middle Name</code></strong></p>
+              <p>New Field Name: <strong class="userinput"><code>middle_name</code></strong></p>
+              <p>Type: <strong class="userinput"><code>Text</code></strong></p>
+              <p>Widget: <strong class="userinput"><code>Text Field</code></strong></p>
+              <p>Put it just below the First Name Field and click "Save"</p>
+              <p>Use the same settings that we used for First Name EXCEPT we don't want
+               Middle Name to be required.</p>
+            </li><li class="step" title="Step 3"><p>Now create one more new field similar to what we just did
+              with First Name and Middle Name fields as follows:</p>
+              <p>New Field Label: <strong class="userinput"><code>Last Name</code></strong></p>
+              <p>New Field Name: <strong class="userinput"><code>last_name</code></strong></p>
+              <p>Type: <strong class="userinput"><code>Text</code></strong></p>
+              <p>Widget: <strong class="userinput"><code>Text Field</code></strong></p>
+              <p>Put it just below the Middle Name Field and click "Save"</p>
+              <p>Use the same settings that we used for First Name field (we DO want
+               Last Name to be required).</p>
+            </li></ol></div></div>
+        <div class="task" title="Add a Photo Field"><p class="title"><b>Add a Photo Field</b></p><div class="tasksummary">We'll now add a photo field for our Staff content type - taking
+           advantage of the Imagefield module.
+          </div><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>If not on the manage fields page for the Staff content type, go to
+           Administer, Content Management, Content Types then click "Manage Fields"</p></li><li class="step" title="Step 2"><p>Add a new field as follows:</p>
+             <p>New Field Label: <strong class="userinput"><code>Photo</code></strong></p>
+             <p>New Field Name: <strong class="userinput"><code>photo</code></strong></p>
+             <p>Type: <strong class="userinput"><code>Image</code></strong></p>
+             <p>Widget: <strong class="userinput"><code>Image</code></strong></p>
+           </li><li class="step" title="Step 3"><p>Drag this new field just below the "Last Name" field, then click
+             "Save"</p></li><li class="step" title="Step 4">
+            <p>On the field settings form, choose "Public files". For the default image, use the
+              "silhouette" image included with this curriculum (in the assets folder). Click "Save
+              field settings"</p>
+          </li><li class="step" title="Step 5"><p>In the settings page that follows accept the defaults other than the following:</p>
+            <p>Maximum Resolution for Images: <strong class="userinput"><code>600x600</code></strong></p>
+            <p>Minimum Resolution for Images: <strong class="userinput"><code>200x200</code></strong></p>
+            <p>In the Global settings, mark the field "Required"</p>
+            <p>Check off "Enable Title Field"</p>
+            <p>Click "Save Field Settings" to save the field</p>
+           </li></ol></div><p>Before continuing let's briefly review some of the Imagefield Settings
+           that we didn't modify:</p><div class="variablelist" title="Imagefield Settings"><p class="title"><b>Imagefield Settings</b></p><dl><dt><span class="term">Allowed File Extensions</span></dt><dd>
+               <p>
+                You'll see this setting for all Filefields, not just imagefields.  Allows
+                you to control the file types that users can upload.
+               </p>
+              </dd><dt><span class="term">Maximum Upload Size</span></dt><dd>
+               <p>
+                Allows you to limit the size of files accepted.
+               </p>
+              </dd><dt><span class="term">Enable Alt, Title field</span></dt><dd>
+               <p> Allows an uploader to enter these HTML attributes for this image. </p>
+              </dd><dt><span class="term">File Directory</span></dt><dd>
+               <p>
+                Allows you to set where under the site files directory the uploaded files
+                will go.  This is especially helpful when you are using Token module.  For
+                example, you could have each user's file uploads go to a directory with
+                their username, etc.  Helps to not have all files in one big folder. We're
+                not going to talk about Tokens in detail in this course, but it is
+                definitely recommended that you research their use in various
+                circumstances.
+               </p>
+              </dd><dt><span class="term">Alt and Title Text Settings</span></dt><dd>
+               <p>
+                Images and more particularly the img tag should have an ALT and TITLE
+                attribute.  If it is important for the user uploading the image to enter
+                something specific there (rather than have the default) you can set that
+                option here.
+               </p>
+              </dd><dt><span class="term">Default Image</span></dt><dd>
+               <p>
+                Self explanatory.  You're image field can have a default image if the user
+                doesn't upload anything.  We've seen this sort of thing before.  You
+                upload an image for your user "avatar" on many sites.  If you don't upload
+                one then the site shows a "silouette" of some sort.  Allows your site to
+                maintain a consistent look and feel even when an image is not uploaded by
+                the user.
+               </p>
+              </dd></dl></div></div>
+        <div class="task" title="Add a Staff Positions field"><p class="title"><b>Add a Staff Positions field</b></p><div class="tasksummary">We'll use an integer field and explore a different widget type.  In
+          this case we want to display some position types to select for each staff
+          member.</div><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>If necessary go to the Manage Fields page for the Staff content
+             type following previous instructions</p></li><li class="step" title="Step 2"><p>Add a new field as follows:</p>
+             <p>New Field Label: <strong class="userinput"><code>Position</code></strong></p>
+             <p>New Field Name: <strong class="userinput"><code>staff_position</code></strong></p>
+             <p>Type: <strong class="userinput"><code>List (text)</code></strong></p>
+             <p>Form Element to Edit Data: <strong class="userinput"><code>Check boxes/radio
+              buttons</code></strong></p>
+           </li><li class="step" title="Step 3">
+            <p>Under Allowed values list, enter:</p>
+            <p><strong class="userinput"><code>Teacher</code></strong></p>
+            <p><strong class="userinput"><code>Department Head</code></strong></p>
+            <p><strong class="userinput"><code>Dean</code></strong></p>
+            <p><strong class="userinput"><code>Assistant Principal</code></strong></p>
+            <p><strong class="userinput"><code>Principal</code></strong></p>
+            <p><strong class="userinput"><code>Student Volunteer</code></strong></p>
+          </li><li class="step" title="Step 4">
+            <p>Click "save field settings"</p>
+          </li><li class="step" title="Step 5"><p>In the settings page that follows accept the defaults except the
+             following :</p>
+            <p>Help Text: <strong class="userinput"><code>Select which positions apply to this staff member.</code></strong></p>
+            <p>Number of Values: <strong class="userinput"><code>Unlimited</code></strong></p>
+           </li><li class="step" title="Step 6"><p>Click "Save Field Settings" to save the field</p></li></ol></div></div>
+        <div class="task" title="Create Staff Nodes to Test"><p class="title"><b>Create Staff Nodes to Test</b></p><div class="tasksummary">We'll create two staff nodes to confirm our content types work.</div><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Go to Add Content, then Staff</p></li><li class="step" title="Step 2"><p>Enter/select values as follows:</p>
+            <p>Display Name: <strong class="userinput"><code>Tobias Funke</code></strong></p>
+            <p>First Name: <strong class="userinput"><code>Tobias</code></strong></p>
+            <p>Last Name: <strong class="userinput"><code>Funke</code></strong></p>
+            <p>Photo Name: Upload <strong class="userinput"><code>tobiasfunke.jpeg</code></strong> (find it in course
+              "assets" folder)</p>
+            <p>Bio: <strong class="userinput"><code> Oh Tobias, where to begin with Tobias.&nbsp; Tobias Fünke is the
+                ridiculous husband of Lindsay Bluth and the father of Maeby.&nbsp; Tobias was once a
+                respectable man who was the chief resident of psychiatry at Massachusetts General
+                Hospital.&nbsp; But after losing his license, Tobias finally decides to become an actor
+                during season one.&nbsp; The highlights of his career include "frightened inmate number
+                two" in a prison movie, being an understudy for the Blue Man Group, and selling out
+                his family to star in a documentary</code></strong></p>
+            <p>Positions: <strong class="userinput"><code>Teacher</code></strong></p>
+          </li><li class="step" title="Step 3">
+            <p>Under Menu settings, check "Provide a munu link". Notice that the "Parent item" is
+              already set to staff. </p>
+          </li><li class="step" title="Step 4">
+            <p>Just for demo purposes, go to the "Publishing options" and check off "Promote to
+              front page"</p>
+          </li><li class="step" title="Step 5"><p>Click Save</p>
+            <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Note the display in full node view.</p></td></tr></tbody></table></div>
+          </li><li class="step" title="Step 6"><p>Create another Staff node using the same procedure as above as
+            follows:</p></li><li class="step" title="Step 7"><p>Enter/select values as follows:</p>
+            <p>Display Name: <strong class="userinput"><code>George Michael Bluth</code></strong></p>
+            <p>First Name: <strong class="userinput"><code>George</code></strong></p>
+            <p>Middle Name: <strong class="userinput"><code>Michael</code></strong></p>
+            <p>Last Name: <strong class="userinput"><code>Bluth</code></strong></p>
+            <p>Photo Name: Upload <strong class="userinput"><code>georgemichaelbluth.jpeg</code></strong> (find it in
+              course downloads "assets" folder)</p>
+            <p>Bio: <strong class="userinput"><code> Hello, I am George Michael Bluth..how's this microphone pin on
+                it's like..it's ticklish. I'm sorry, could i get like, a juice or something? It's
+                kind of famishing. No, it's nothing, but it is kind of hot- you know what, forget
+                it, Ann was planning of bringing some wheat-grass anyway. What a swell gal.
+                Sometimes she just, she puts an egg in her mouth and she mushes it around, and get
+                some mayonnaise, and hmhmmhhm and she...she calls it a MAYONEGG! About myself? Well,
+                I like pizza..I'm a Taurus, i believe. That's July, right? Yeah that's
+                right.</code></strong></p>
+            <p>Positions: <strong class="userinput"><code>Teacher, Department Head</code></strong></p>
+          </li><li class="step" title="Step 8"><p>Under Menu settings, check "Provide a munu link". Notice that the "Parent item" is already set
+              to staff.</p></li><li class="step" title="Step 9">
+            <p>Just for demo purposes, go to the "Publishing options" and check off "Promote to
+              front page"</p>
+          </li><li class="step" title="Step 10"><p>Click Save</p></li></ol></div></div>
+      </div>
+      <div class="section" title="Image styles"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e1336"></a>Image styles</h2></div></div></div>
+        
+        <div class="task" title="Create Image styles"><p class="title"><b>Create Image styles</b></p><div class="tasksummary">
+          <p>One important feature of many websites is for an image to be displayed in different
+            ways in different places. In Drupal that is handled with image styles. We'll detour here
+            to create.modify some presets for our site.</p>
+        </div><div class="procedure" title="Procedure 9.3. Create a thumbnail preset"><a name="d6e1342"></a><p class="title"><b>Procedure&nbsp;9.3.&nbsp;Create a thumbnail preset</b></p><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Go to Configuration, image style</p></li><li class="step" title="Step 2"><p>Click "Edit" next to thumbnail</p></li><li class="step" title="Step 3"><p>We want our images to be perfectly square, so click "Override defaults"</p></li><li class="step" title="Step 4"><p>In the "Effects" table, lets delete the "Scale 100x100" effect</p></li><li class="step" title="Step 5"><p>Choose "Scale and Crop" and click the Add button</p></li><li class="step" title="Step 6"><p>Put <strong class="userinput"><code>100</code></strong>  for BOTH Width and Height.</p>
+           </li><li class="step" title="Step 7"><p>Click "Add effect"</p></li><li class="step" title="Step 8"><p>Click "Update Style"</p></li><li class="step" title="Step 9"><p>To get back to the list of presets click the "Image styles" in the breadcrumb.</p></li></ol></div></div>
+      </div>
+      <div class="section" title="Field Display Options"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e1363"></a>Field Display Options</h2></div></div></div>
+       
+        <div class="task" title="Set Field Display Options"><p class="title"><b>Set Field Display Options</b></p><div class="tasksummary">
+          <p>Drupal also provides you with some ability to control how your fields are output.
+            This is through the use of formatters which appear on the "Display Fields" screen. It
+            provides limited ability to select the layout of your content type display in teaser
+            lists and full node display. One nice feature is that image fields automatically
+            presents imagecache presets as display options For full control theming will be required
+            which is beyond the scope of this course.</p>
+        </div><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Go to Structure, then Content Types</p></li><li class="step" title="Step 2">
+            <p>Under "Custom display settings" check off "Full Content" and "Teaser" and click
+              "Save"</p>
+          </li><li class="step" title="Step 3">
+            <p>Click "Full Content" on the top right of the overlay</p>
+          </li><li class="step" title="Step 4"><p>Set the label options for each field as follows:</p>
+            <p>First Name: <strong class="userinput"><code>Inline</code></strong></p>
+            <p>Middle Name: <strong class="userinput"><code>Inline</code></strong></p>
+            <p>Last Name: <strong class="userinput"><code>Inline</code></strong></p>
+            <p>Photo: <strong class="userinput"><code>Above</code></strong></p>
+            <p>Positions: <strong class="userinput"><code>Above</code></strong></p>
+          </li><li class="step" title="Step 5"><p>For the Photo field, click the gear to the right and set the "image style to
+                <strong class="userinput"><code>large</code></strong> and "Link image" to <strong class="userinput"><code>nothing</code></strong> and
+              click "Update"</p></li><li class="step" title="Step 6">
+            <p>Click the "Save" button.</p>
+          </li><li class="step" title="Step 7">
+            <p>Now Click the teaser link (top right)</p>
+          </li><li class="step" title="Step 8"><p>Drag the photo field above the body field and set its label to "hidden"; For the "First Name",
+              "Middle Name", "Last Name", "Positions" - drag the fields to
+                <strong class="userinput"><code>hidden</code></strong></p></li><li class="step" title="Step 9">
+            <p>Click the gear to the right of the photo and set it to "Thumbnail" and link to
+              node.</p>
+          </li><li class="step" title="Step 10">
+            <p>Click the gear to the right of body and set the trim length to 250. Click
+              "Update"</p>
+          </li><li class="step" title="Step 11"><p>Click "Save"</p></li></ol></div></div>
+        <div class="task" title="View a Staff Node in teaser and full node"><p class="title"><b>View a Staff Node in teaser and full node</b></p><div class="tasksummary">We'll now view a staff node in teaser and full node to see the
+           impact of our display fields choices.</div><div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Go to the Home Page</p></li><li class="step" title="Step 2"><p>Since we promoted our first two staff nodes created to the home page we should see them as
+              teasers. Note the display changed to small icon (100 x 100)</p></li><li class="step" title="Step 3"><p>Click one of the thumbnails</p>
+           </li><li class="step" title="Step 4"><p>Use the back button in your browser to go back to the site, then to the home page</p></li></ol></div></div>
+      <p>We should take a second to edit the two staff members and uncheck the "promote to front
+        page" option. Notice that there are no contextual links anymore on our nodes. This is
+        because the Marianelli theme doesnt support them. :( To edit, cimply click into the node and
+        click the Edit tab under the title.</p>
+      <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+        <p>Optional Catchup Point! To catch up to this point apply Demo snapshot
+          "10-Completed_Create_Content_Type"</p>
+      </td></tr></tbody></table></div>
+      </div> 
+    </div>
+    <div class="chapter" title="Chapter 10. Views"><div class="titlepage"><div><div><h2 class="title"><a name="d6e1420"></a>Chapter&nbsp;10.&nbsp;Views</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="drupalsitebuilding.html#d6e1425">Create a Staff View</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e1481">Move Staff Page Menu</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e1513">Display the staff listing block</a></span></dt></dl></div>
+      
+      <div class="abstract" title="Abstract"><div class="titlepage"></div>
+        <p>Now that we have some content (and a new Staff content type) let's take a
+         first look at Views.</p>
+      </div>
+      <div class="section" title="Create a Staff View"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e1425"></a>Create a Staff View</h2></div></div></div>
+        
+        <p>We'll start with two basic view displays to display our Staff information as
+         desired</p>
+        <div class="task" title="Create a Staff View"><p class="title"><b>Create a Staff View</b></p><div class="tasksummary">
+          <p>Now that we have a Staff content type we want to create a view to display it as both
+            a page and a sidebar block. .</p>
+        </div><div class="procedure" title="Procedure 10.1. Initialize the View"><a name="d6e1432"></a><p class="title"><b>Procedure&nbsp;10.1.&nbsp;Initialize the View</b></p><ol class="procedure" type="1"><li class="step" title="Step 1"><p>Go to Structure, then Views</p></li><li class="step" title="Step 2"><p>On the Views listing page click the "Add new view" link to create a new View.</p></li><li class="step" title="Step 3"><p>Start by filling in:</p>
+            <p>View Name: <strong class="userinput"><code>Staff Listing</code></strong></p>
+            <p>Show: <strong class="userinput"><code>Content</code></strong> of type <strong class="userinput"><code>Staff</code></strong> ordered
+              by <strong class="userinput"><code>Title</code></strong></p>
+           </li><li class="step" title="Step 4"><p>Check off "Create a page"</p></li><li class="step" title="Step 5">
+            <p>Fill out the "Page" form using the following settings:</p>
+            <p>Page Title: <strong class="userinput"><code>Staff Listing</code></strong></p>
+            <p>Path: <strong class="userinput"><code>staff-listing</code></strong></p>
+            <p><strong class="userinput"><code>Unformated</code></strong> list of <strong class="userinput"><code>Full Post</code></strong>
+              <strong class="userinput"><code>Without Links</code></strong>
+              <strong class="userinput"><code>Without Comments</code></strong></p>
+            <p>Items to display: <strong class="userinput"><code>3</code></strong></p>
+            <p>Check : <strong class="userinput"><code>Use pager</code></strong> &amp; <strong class="userinput"><code>Include
+              RSS</code></strong></p>
+          </li><li class="step" title="Step 6">
+            <p>Check off "Create a block"</p>
+          </li><li class="step" title="Step 7">
+            <p>Fill out the "Block" form using the following settings:</p>
+            <p>Block Title: <strong class="userinput"><code>Staff Listing</code></strong></p>
+            <p><strong class="userinput"><code>Unformated</code></strong> list of <strong class="userinput"><code>Teasers</code></strong>
+              <strong class="userinput"><code>Without Links</code></strong>
+              <strong class="userinput"><code>Without Comments</code></strong></p>
+            <p>Items to display: <strong class="userinput"><code>5</code></strong></p>
+            <p>Check : <strong class="userinput"><code>Use pager</code></strong></p>
+          </li><li class="step" title="Step 8">
+            <p>Click "Continue &amp; Edit"</p>
+          </li></ol></div></div>
+        </div>
+         <div class="section" title="Move Staff Page Menu"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e1481"></a>Move Staff Page Menu</h2></div></div></div>
+           
+           <p>Since we already added the page display of our staff to the primary links
+           menu already using the options views provides there isn't much to do here!</p>
+           <div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1">
+          <p>Click the "no menu" link next to Menus (center column)</p>
+        </li><li class="step" title="Step 2">
+          <p>Fill out the form using the following settings:</p>
+          <p>Type: <strong class="userinput"><code>Normal Menu Entry</code></strong></p>
+          <p>Title: <strong class="userinput"><code>Staff Listing</code></strong></p>
+          <p>Description: <strong class="userinput"><code>A view of staff members</code></strong></p>
+          <p>Menu: <strong class="userinput"><code>Main Menu</code></strong></p>
+          <p>Weight: <strong class="userinput"><code>0</code></strong></p>
+        </li><li class="step" title="Step 3">
+          <p>Click "Apply"</p>
+        </li><li class="step" title="Step 4">
+          <p>Click "Save" (Top right)</p>
+        </li><li class="step" title="Step 5">
+          <p>Now we have 2 menu items for a staff list. Lets fix that. Go to Structure, Menus and
+            click the "list links" link next to Main Menu</p>
+        </li><li class="step" title="Step 6">
+          <p>Drag the "Site Listings" link "into" the "About Us" and move all the staff member
+            links "into" the "Site Listings". </p>
+        </li><li class="step" title="Step 7">
+          <p>Click "Save configuration"</p>
+        </li><li class="step" title="Step 8">
+          <p>Finally, lets go ahead and delete the old "Staff" page. Go to "Find content".</p>
+        </li><li class="step" title="Step 9">
+          <p>Scroll down and find the "Staff" basic page and click the delete link to the
+            right.</p>
+        </li></ol></div>
+         </div>
+    <div class="section" title="Display the staff listing block"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e1513"></a>Display the staff listing block</h2></div></div></div>
+      
+      
+      <p>Now that we have our staff list page setup, lets deal with the block!</p>
+      <div class="procedure"><ol class="procedure" type="1"><li class="step" title="Step 1">
+          <p>Click Structure, Blocks</p>
+        </li><li class="step" title="Step 2">
+          <p>Notice there is a new block called "View: Staff listing." Let's move that directly
+            under the "User Login" block in the "First Sidebar." ... And while we're here, why dont
+            we move the Who's online and Who's new blocks to the second sidebar under the
+            poll.</p>
+        </li><li class="step" title="Step 3">
+          <p>Click "Save blocks" and go to the homepage.</p>
+        </li></ol></div>
+    </div>
+    </div>
+  <div class="chapter" title="Chapter 11. Controling your markup with Display Suite"><div class="titlepage"><div><div><h2 class="title"><a name="d6e1523"></a>Chapter&nbsp;11.&nbsp;Controling your markup with Display Suite</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="drupalsitebuilding.html#d6e1528">Modifying a view mode</a></span></dt><dt><span class="section"><a href="drupalsitebuilding.html#d6e1578">Extra settings</a></span></dt></dl></div>
+    
+    
+    <div class="abstract" title="Abstract"><div class="titlepage"></div>
+      <p>Things are looking almost good now ... Lets make it look exactly how we want it
+        now.</p>
+    </div>
+    <div class="section" title="Modifying a view mode"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e1528"></a>Modifying a view mode</h2></div></div></div>
+      
+      
+      <p>First things first - lets enable display suite.</p>
+      <div class="task"><div class="procedure"><p>Enable Display Suite</p><ol class="procedure" type="1"><li class="step" title="Step 1">
+            <p>Go to Structure, modules</p>
+          </li><li class="step" title="Step 2">
+            <p>Enable the Display Suite module as well as the Display Suite Extras module.</p>
+          </li></ol></div></div>
+      <div class="task"><div class="procedure"><p>Use Display Suite to layout a teaser view mode</p><ol class="procedure" type="1"><li class="step" title="Step 1">
+            <p>Go to Structure, content tpyes and click "manage display" next to staff</p>
+          </li><li class="step" title="Step 2">
+            <p>Choose "teaser" form the list of build modes (top right).</p>
+          </li><li class="step" title="Step 3">
+            <p>At the bottom of the form, choose <strong class="userinput"><code>Two Column</code></strong> under "Select
+              layout" and click "Save"</p>
+          </li><li class="step" title="Step 4">
+            <p>Notice how we have new regions to work with now. Drag the Photo Field into the
+              Left region and the body into the Right region. Click Save.</p>
+            <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tbody><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="file://localhost/Users/alex/Desktop/oxygen/frameworks/docbook/xsl/images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+              <p>There are also a number of new fields. Display suite is smart enough to know
+                that you may want even more control over other parts of an entity (like the Author
+                and the Post Date) in addition to the fields.</p>
+            </td></tr></tbody></table></div>
+          </li><li class="step" title="Step 5">
+            <p>Take a look at the homepage to see what changed. It seems we are showing too much
+              text now. Let's go back to Structure, Content Types and click Manage Display next to
+              "staff."  Click "Teaser" on the top right. </p>
+          </li><li class="step" title="Step 6">
+            <p>Click the gear icon next to Body (right) ad change the trim length to 100.
+            </p>
+          </li><li class="step" title="Step 7">
+            <p>While we're here, lets add the title to the top of the Right region. Also, lets
+              wrap it in an &lt;strong&gt; tag by clicking the gear to the right of the title. And lets
+              drag the "read more" field to the Left region under the body.</p>
+          </li><li class="step" title="Step 8">
+            <p>Save and go to the homepage.</p>
+          </li></ol></div></div>
+      <div class="task"><div class="procedure"><p>Use Display Suite to layout a full view mode</p><ol class="procedure" type="1"><li class="step" title="Step 1">
+            <p>Go to Structure, content tpyes and click "manage display" next to staff</p>
+          </li><li class="step" title="Step 2">
+            <p>Choose "full content" form the list of build modes (top right).</p>
+          </li><li class="step" title="Step 3">
+            <p>At the bottom of the form, choose <strong class="userinput"><code>Two Column Stacked</code></strong> under
+              "Select layout" and click "Save"</p>
+          </li><li class="step" title="Step 4">
+            <p>Add the Title field to the Header; The Photo and Position fields to Left; and the
+              Body to the Right.</p>
+          </li><li class="step" title="Step 5">
+            <p>Hide the title for Photo, wrap the title in an H1, and </p>
+          </li><li class="step" title="Step 6">
+            <p>Click the gear next to photo and choose "medium" and link to "file" and click
+              "Update"</p>
+          </li><li class="step" title="Step 7">
+            <p>Save and go to one of the staff member pages.  </p>
+          </li></ol></div></div>
+    </div>
+    <div class="section" title="Extra settings"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d6e1578"></a>Extra settings</h2></div></div></div>
+      
+      
+      <p>Display suite comes with tons of extra settings. Lets use one to get rid of the
+        duplicate titles.</p>
+      <div class="task"><div class="procedure"><p>Enable Display Suite</p><ol class="procedure" type="1"><li class="step" title="Step 1">
+            <p>Go to Structure, Display Suite and then Extras</p>
+          </li><li class="step" title="Step 2">
+            <p>Under the "Other" tab check off "Page title options" and click "Save
+              configuration.</p>
+          </li><li class="step" title="Step 3">
+            <p>Go back to structure, content types, and manage the display of staff. Dont forget
+              to click "full content" in the top right.</p>
+          </li><li class="step" title="Step 4">
+            <p>Notice there is a new "Page Title" setting at the bottom of this page. Choose
+              "Hide" and save.</p>
+          </li></ol></div></div>
+    </div>
+  </div>
+   </div></body></html>

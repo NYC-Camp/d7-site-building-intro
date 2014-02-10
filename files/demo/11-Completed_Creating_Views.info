@@ -1,0 +1,4 @@
+filename = 11-Completed_Creating_Views
+description = ""
+modules = block advanced_help color comment contextual ctools dashboard dblog demo demo_reset devel_generate field field_sql_storage field_ui file filter help image list menu module_filter node number options overlay path poll rdf search shortcut system taxonomy text toolbar user views_ui views devel standard
+version = 1.1

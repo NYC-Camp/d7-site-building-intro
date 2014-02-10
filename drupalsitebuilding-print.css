@@ -1,0 +1,26 @@
+h1 {
+    font-size: 24px;
+}
+h2 {
+    font-size: 22px;
+}
+body {
+    font-size: 17px;
+}
+
+.titlepage h1 {
+  font-size:50px;
+}
+
+
+.chapter .titlepage h2 {
+  font-size:22px;
+}
+
+.chapter .section .titlepage h2 {
+  font-size:18px;
+}
+
+div.author {
+  font-size:18px;
+}

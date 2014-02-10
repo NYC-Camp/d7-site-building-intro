@@ -1,0 +1,4 @@
+filename = 10-Completed_Create_Content_Type
+description = ""
+modules = block advanced_help color comment contextual dashboard dblog demo demo_reset devel_generate field field_sql_storage field_ui file filter help image list menu module_filter node number options overlay path poll rdf search shortcut system taxonomy text toolbar user devel standard
+version = 1.1

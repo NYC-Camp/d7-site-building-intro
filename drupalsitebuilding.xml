@@ -1,0 +1,2111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookx.dtd">
+<book><!--Intro to Drupal -->
+	<bookinfo>
+		<title>Drupal Site Building - Drupal 7</title>
+		<author>
+			<othername>Winston</othername>
+			<personblurb><para><ulink url='http://drupal.org/user/50839'>http://drupal.org/user/50839</ulink></para></personblurb>
+		</author>
+    <author>
+      <othername>Alexander Ross</othername>
+      <personblurb>
+        <para><ulink url="http://drupal.org/user/50839">http://drupal.org/user/77375</ulink></para>
+      </personblurb>
+    </author>
+	</bookinfo>
+	<abstract>
+    <para>
+     This course covers how to build a site with Drupal.  Site building here means
+     creating a site without programming or theming.  Coverage include basic
+     post-installation, understanding of administrative functions of setting up a drupal
+     site, working with menus, using regions and blocks, installing and using core and
+     common contrib modules.  Most importantly building your own content types with the
+     Content Construction Kit  and
+     creating output for your pages with Views is covered in some detail.  As an added
+     bonus we also include an example of improving your admin interface.
+    </para>
+	</abstract>
+<!--Consider adding a preface-->
+    <chapter><!--Starting Point - Installing Drupal for the First Time -->
+		<chapterinfo>
+          <title>Drupal Environment</title>
+		</chapterinfo>
+		<abstract>
+		<para>
+         This chapter covers some background information about the environment in which
+         you run a Drupal site.  We'll also define some information you'll need to
+         complete the rest of this course.
+		</para>
+		</abstract>
+		<section><!--AMP Underpinnings-->
+		<title>AMP Underpinnings</title>
+		<para>
+		The web server environment most commonly used to run Drupal (or any other PHP-based web application) is often referred to as <emphasis>LAMP</emphasis>, which is short for Linux, Apache, MySQL, and PHP. For this class, we will refer to this to AMP, as you will see you can install Apache, MySQL and PHP on Linux, Windows, or Mac computers. You will often hear this referred to as the AMP "stack". In this context, "stack" means a set of programs that work together to accomplish a task (serving up your PHP-based, data driven, Web site).
+		</para>
+		<para>
+		Here is a brief description of what these components do:
+		</para>
+		<variablelist>
+			<title>AMP Stack</title>
+			<varlistentry>
+				<term>Apache</term>
+				<listitem>
+				<para>
+				Apache is the most common web server in use on the Internet today. It accepts requests to your Web site from browsers such as Firefox, Internet Explorer, or Safari, and sends the resulting page content back to the browser.  Other web server software can also be used for Drupal.  NGINX in particular is becoming popular.
+				</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>MySQL</term>
+				<listitem>
+				<para>
+				MySQL is an open source relational database program (RDBMS). This is the database most commonly used to store your Web site data. Drupal supports other databases as well. Postgres is another free option.  Drupal 7 will include support for SQLite and other databases as well.
+				</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>PHP</term>
+				<listitem>
+				<para>
+				PHP: Hypertext Pre-Processor. PHP is simply the programming language that Drupal is developed in. It is a requirement to run Drupal.  PHP is a scripting language which means that it is interpreted at "run time".  However there are many possibly ways to optimize PHP applications.  PHP based web applications power much of the internet.
+				</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+		</section>
+        <section><!--Class AMP environment-->
+          <title>Class AMP environment</title>
+          <para>For the purpose of this class you'll need someplace to install Drupal to
+           perform the hands-on activities.  We won't go into exact detail as there are a
+          few different ways this can be done.  Your instructor will provide you with
+          details on how/where you'll be setting up Drupal for this class.</para>
+          <para>There are a few different possibilities here:</para>
+          <orderedlist>
+              <listitem>
+                  <para>Local pre-configured AMP "stack": </para>
+                  <para>Some local options include for example WAMP for Windows, MAMP for
+                  Mac, and the Acquia Drupal Stack installer (both Windows and MAC).</para>
+              </listitem>
+              <listitem>
+                  <para>Remote web server (managed with CPanel or similar)</para>
+                  <para>These may be low cost shared hosting providers.  Some may provide
+                  command line access to the server, others may not.</para>
+              </listitem>
+              <listitem>
+                  <para>Remote web server (with command line "ssh" access)</para>
+                  <para>This could be cloud hosting, slice hosting, or some other sort of
+                  dedicated hosting.  These may provide greater resources for your web
+                  server, but may not have some consumer features such as a web based
+                  CPANEL interface.</para>
+              </listitem>
+          </orderedlist>
+            <sidebar>
+            <title>Detour - Understanding the *NIX Permissions</title>
+            <para>Unix/Linux use a set of permissions for the owner of the file/directory, called "User"; the group that the user is a member of ("Group"); and everyone else ("Other").</para>
+          <para>On a typical shared host, when you upload files to the server using command line (wget), CPanel, or FTP, the files associate your account with the provider as the owner and your group as the group. Apache doesn't run under your account, so the Apache user is considered "other".  Therefore, any files modified or directories created by Drupal must be under the permission of "other".  For security reasons, you don't want Apache to be able to do things you don't want (like modify code files) as that is a security issue.  Usually, you only want the webserver (Apache) to have the ability to write to specific directories.  In Drupal, it is the files directory where users upload files (images, etc.).  All other folders should not have write permissions for the web server.</para>
+            <para>As a special case, when you first install Drupal, you want the webserver to temporarily be able to do two things to get Drupal installed you normally wouldn't allow:</para>
+            <itemizedlist>
+            	<listitem>First, you want it to edit the settings.php with the information you provide around database user/password, etc</listitem>
+            	<listitem>Second, you want it to create an empty files directory so users have a place to put their files.  </listitem>
+            	</itemizedlist>
+          <para>To do this on a Unix or Linux system, you simply need to do two things:</para>
+          	<itemizedlist>
+          		<listitem>Give "other" write permission to the settings.php you created.</listitem>
+          		<listitem>Give "other" write permission to the "default" folder. By default, this is where Drupal will try to create the files folder.  For a multisite install, these instructions are slightly different, but that is beyond the scope of this course.</listitem>
+          	</itemizedlist>
+          <para>If you have command line access to your server (shell or ssh are other common names for this), then follow the instructions in the INSTALL.txt file in the root Drupal folder.  If you don't have shell access (you are using CPANEL, FTP, or just prefer a GUI interface), then you'll have to figure out how to give "other" write access to the settings.php file and the sites/default folder.  The result should be the same.</para>
+            </sidebar>
+        </section>
+        <section><!--Record Your Setup Information-->
+          <title>Record Your Setup Information</title>
+          <para>Since Drupal runs in lots of places you'll need to record information
+           specific for how your class will run.  Most of this information will come from
+          your instructor.</para>
+         <variablelist>
+           <title>Class Setup Information</title>
+           <varlistentry>
+             <term>DRUPAL_ROOT_URL</term>
+             <listitem>
+              <para>
+               This is the URL you'll be using to get to your class drupal.  If you are
+               running locally this could be http://localhost/drupal6sitebuilding or
+               perhaps http://localhost:8888/drupal6sitebuilding.  If you are running this
+               on a server provided by the instructor they will provide this URL to you.
+               You'll know it is right as you should see a Welcome to Drupal Install
+               screen when you go to that URL in your browser.
+              </para>
+             </listitem>
+           </varlistentry>
+           <varlistentry>
+             <term>DRUPAL_ROOT_PATH</term>
+             <listitem>
+              <para>
+               This is how you'll get to where your Drupal Installation files if you need
+               to add or modify files.  If you are running this locally it could simply be
+               a local file path such as C:\wamp\htdocs\drupal.  If you are running this
+               on a server provided by the instructor they will provide you with this
+               information and how to manage files as needed for the course.
+              </para>
+             </listitem>
+           </varlistentry>
+           <varlistentry>
+             <term>PHPMYADMIN_URL</term>
+             <listitem>
+              <para>
+               If you are running this locally this could be http://localhost/phpmyadmin.
+               If you are using an environment provided by the instructor they may have
+               already set up a database for you so you may not even need this.
+              </para>
+             </listitem>
+           </varlistentry>
+           <varlistentry>
+             <term>MYSQL_USERNAME</term>
+             <listitem>
+              <para>
+               A MYSQL Username that has access to a blank MYSQL database to install
+               Drupal to.  You'll need this during Drupal Web Based Install.
+              </para>
+             </listitem>
+           </varlistentry>
+           <varlistentry>
+             <term>MYSQL_PASSWORD</term>
+             <listitem>
+              <para>
+               A password for the above Mysql user.  You'll need this also during the
+               Drupal Web Based Install.
+              </para>
+             </listitem>
+           </varlistentry>
+           <varlistentry>
+             <term>MYSQL_DATABASE_NAME</term>
+             <listitem>
+              <para>
+               The Mysql database name that you want to install Drupal too.  You will
+               either create this during class or your instructor may provide you this
+               information.
+              </para>
+             </listitem>
+           </varlistentry>
+           <varlistentry>
+             <term>DRUPAL_ADMIN_NAME</term>
+             <listitem>
+              <para>
+               You will create this yourself during the course during Drupal installation.
+               It is the first user you create for your website during Drupal install.
+               You'll need this recorded somewhere.
+              </para>
+             </listitem>
+           </varlistentry>
+           <varlistentry>
+             <term>DRUPAL_ADMIN_PASSWORD</term>
+             <listitem>
+              <para>
+               You will create this yourself during the course during Drupal installation
+               to go along with above admin user name.
+              </para>
+             </listitem>
+           </varlistentry>
+          </variablelist>
+        </section>
+        <section><!--Before Installing Drupal-->
+          <title>Before Installing Drupal</title>
+          <para>These are the high level steps you must complete prior to starting the web
+          based Drupal install.  We are not providing detailed steps as this will vary
+          somewhat depending on where you are installing Drupal (local environment vs. a
+          web server set up for class, etc.)</para>
+          <orderedlist>
+              <listitem>
+                  <para>Download Files for Class.  Don't just download the standard Drupal
+                  install files and the class files have additional files included for
+                  class (contributed modules, images, etc.)</para>
+              </listitem>
+              <listitem>
+                <para>Create the configuration file (settings.php) by copying the
+                 default.settings.php</para>
+              </listitem>
+              <listitem>
+                <para>Modify file permissions on the new settings.php file and on the
+                 sites/default folder to allow for Drupal install</para>
+              </listitem>
+              <listitem>
+                <para>Create a blank MYSQL database.</para>
+              </listitem>
+          </orderedlist>
+          <para>Your instructor will guide you in these activities as per your class
+           setup.</para>
+        </section>
+	</chapter>
+	<chapter><!--Install Drupal for the First Time-->
+		<chapterinfo>
+	        <title>Installing Drupal for the First Time (Web Based Installer)</title>
+         </chapterinfo>
+        <para>Assumptions: You have a blank MySQL database and have configured the drupal
+         installation files in preparation for a web based install.  You have recorded the
+         needed information as per the previous section></para>
+	  <section><!--Install Drupal -->
+        <title>Installing Drupal </title>
+        <task>
+          <title>Installing Drupal </title>
+          <tasksummary>We will install Drupal</tasksummary>
+          <procedure>
+          <step><para>Go to DRUPAL_ROOT_URL</para></step>
+          <step><para>Select Install in English.</para></step>
+          <step><para>Setup the database.</para>
+            <para>database name = <userinput>MYSQL_DATABASE_NAME</userinput></para>
+            <para>database username = <userinput>MYSQL_USERNAME</userinput></para>
+            <para>database password = <userinput>MYSQL_PASSWORD</userinput></para></step>
+          <step><para>Click Advanced, but don't change anything.</para>
+            <sidebar>
+            <title>Advanced Options</title>
+            <para>Before proceeding, please note the Advanced options.  For example, the
+             database prefix option allows you to run more than one Drupal 
+             installation from a single mysql database, using a table
+             prefix that you specify.  Use a separate prefix for each install.
+            This isn't a great idea, but could, for example, allow you to get around
+            limitations of a shared hosting environment.</para>
+            </sidebar>
+           </step>
+           <step><para>Click next.</para></step>
+           <step><para>Configure the site:</para>
+             <para>Site Name = Ournews</para>
+             <para>Site email = noreply@example.com </para>
+             <para>Administrator..Username = DRUPAL_ADMIN_NAME </para>
+             <para>Administrator..email address= webmaster@example.com </para>
+             <para>Administrator..password = DRUPAL_ADMIN_PASSWORD </para>
+             <para>Select the time zone</para>
+             <para>Make sure clean urls is on.</para>
+           </step>
+           <step><para>Click next</para></step>
+           <step><para>Click You may now visit your new site</para></step>
+           </procedure>
+         </task>
+        </section>
+	</chapter>
+	<chapter><!--Creating Content-->
+     <chapterinfo>
+       <title>Creating Content</title>
+     </chapterinfo>	
+     <abstract>
+      <para>Now we have an empty site.  Next is to learn the basics of adding
+       content.  We'll learn how to create the most basic content type, where it is
+       displayed by default, and some basic content creation options.</para>
+     </abstract>
+     <section><!--Create First Content-->
+        <title>Creating Basic Content</title>
+        <task>
+         <title>Creating an Article Node</title>
+         <tasksummary>Let's create our first story for our new "Drupal High" Web site.</tasksummary>
+        <procedure>
+        <step><para>Click the "Add new content" link in the gray shortcut bar. You'll find it just below the black
+              toolbar that spans the top of the page.</para></step>
+        <step><para>Select Article</para>
+         <note><para>Briefly discuss the two out of the box content types.</para></note></step>
+        <step><para>New Page Information</para>
+         <para>Title = <userinput>Drupal High Web Site Launched</userinput></para>
+         <para>Body = <userinput>Principal Dries has commissioned this exciting new Web site.
+                This Web site is based on Drupal - the powerful CMS with outstanding support for
+                building a community-based Web site.          Check back often as this Web site will
+                take off fast!</userinput>
+            </para>
+        </step>
+        <step><para>Describe the basic options briefly</para>
+        <variablelist>
+         <varlistentry>
+          <term>- Input Format</term>
+          <listitem><para>Input formats are a common source of errors for new users.  We will come back to this in a moment.</para>
+          </listitem>
+         </varlistentry>
+        <varlistentry>
+          <term>Revision Information</term>
+          <listitem><para>Retains revision information so you can roll back to old content.  You probably don't
+            want this for all content types.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+         <term>Comment Settings</term>
+         <listitem><para>Obvious?</para>
+         </listitem>
+        </varlistentry>
+        <varlistentry>
+         <term>Authoring Information</term>
+         <listitem><para>Leave blank for anonymous. As the administrator, you may want the ability to post as someone
+           else. You probabl don't want this enabled for users.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+         <term>Publishing Options</term>
+         <listitem><para>Published means accessible to users. Promoted to home page means it will appear on the default
+                    home page. Sticky at top of lists means that it will come to the top of the home
+                    page or similar views of content (above other "non-sticky" published nodes).
+                    This will become obvious by example.</para></listitem>
+        </varlistentry>
+       </variablelist>
+         <note><para>Remember: What a user sees is based on their permissions.  Since we are logged in as "user 1", or the root user, we see all options when creating content. Permissions, which are covered later, allow us to control this.</para></note>
+       </step>
+       <step><para>Expand the publishing options and note that stories default to published
+         and promoted.</para>
+       </step>
+       <step><para>Don't change any other options for now. </para>
+       </step>
+       <step><para>Click Preview.</para></step>
+       <step><para>Note the preview.  There are two ways to show content: the shorter <emphasis>trim version</emphasis> and the <emphasis>full version</emphasis>.</para>
+       </step>
+       <step>
+        <para>Enter a sample sentence and then copy and paste it to have about 20 lines of text.</para>
+       </step>
+       <step><para>Cilck Preview again, and note the differences between the "trim" version and the full version.</para>
+        <note><para>By default, Drupal trims the story to display the first 600 characters. You can change the number of characters.</para></note>
+       </step>
+       <step><para>What is the "Edit Summary" link all about?</para>
+        <para>Click the "Edit summary" link next to "Body"</para>
+        <note>Note the two boxes that appear.</note>
+            <para>Enter some text into the new summary text box. Be sure to use different text then
+              what is already in the body field.</para>
+       </step>
+       <step><para>Click "Preview" once again. </para>
+        <note><para>Note how the full view doesn't include the teaser at all.</para></note>
+        </step>
+       <step><para>Go to the home page to view the story, then click on the story title (or the "read more" link) to see the full story - confirm it displays as you expected - the full version includes the teaser and the extra body content.</para></step>
+        </procedure>
+        </task>
+      </section>
+      <section><!--Tour of Drupal Admin "out of the box"-->
+       <title>Tour of Drupal Admin "out of the box"</title>
+        <task>
+         <title>A quick look at some admin settings.</title>
+         <tasksummary>You need to be familiar with the range of administrative options Drupal provides out of the box.  We'll take a quick look and change a few settings here.</tasksummary>
+        <procedure>
+          <step>
+            <para>Before we start, lets discuss the toolbar and the shortcut bar. The toolbar (the
+              black bar across the top) is your main administrative navigation. The grey shortcut
+              bar allows you to add any links that you visit often whenever you want. These can be
+              setup globally or on a per-user basis. Let's take a quick look. Click the Structure
+              link in the toolbar and then click the "Snapshots" link. Now, click the "+" directly
+              next to the "Snapshots" title. Now you have a new shortcut!</para>
+          </step>
+        <step><para>A quick tour of the configuration options with no additional modules enabled yet.</para>
+		 <para>
+			 <variablelist>
+           <varlistentry>
+             <term>Clean URLs</term>
+             <listitem>
+             <para>
+              Consider two URLs.  http://mysite.com/?q=whatever vs
+              http://mysite.com/whatever.  The previous is called a URL with a
+              "querystring".  Since we are using a database to store our data the paths do
+              not represent real paths on the web server hard drive (i.e. there is not
+              file called "whatever" to be found).  So the querystring represents
+              instructions on what we want to retrieve and display.  Most site owners want
+              paths that make sense to users.  With clean urls turned on the querystring
+              is hidden to the user.  Support for this feature is built into the Apache
+              webserver (and others).
+             </para>
+             </listitem>
+           </varlistentry>
+           <varlistentry>
+             <term>File System &amp; Private Filessytem</term>
+             <listitem>
+             <para> Shows where on the web server that Drupal create the files folder by default.
+                      This folder must be writable by the server process. By default this folder is
+                      placed below the default folder at "sites/default/files". As of D7 you can
+                      have two folders; one for public files and one for private files. If you are
+                      using private files you may want to move this folder to someplace above your
+                      apache document root. </para>
+             </listitem>
+           </varlistentry>
+           <varlistentry>
+             <term>Input Formats</term>
+             <listitem>
+             <para>We'll talk about this more in the context of editing content. In short it allows
+                      you to filter and control what users enter to avoid bad information in your
+                      site. </para>
+             </listitem>
+           </varlistentry>
+           <varlistentry>
+             <term>Performance</term>
+             <listitem>
+             <para>
+              How does Drupal standard caching work?  Good news for sites with a lot of
+              anonymous users.  Are there other options?  What do the other options do
+              (and when might you turn them off)?
+             </para>
+             </listitem>
+           </varlistentry>
+           <varlistentry>
+             <term>Site Maintenance</term>
+             <listitem>
+             <para>
+              Putting your site in maintenance mode (when should you do that).
+             </para>
+             </listitem>
+           </varlistentry>
+           <varlistentry>
+             <term>Site Information</term>
+             <listitem>
+             <para>
+              Basic information about your site (may be used by themes).
+             </para>
+             </listitem>
+           </varlistentry>
+	   </variablelist>
+         </para>
+        </step>
+        <step>
+         <para>Modify the Site Information as follows:</para>
+         <para>Slogan = <userinput>Our slogan at Drupal High School is to development the next
+                generation of leaders Drupal Leaders!</userinput></para>
+          <note><para>Note that here you can change the default home page and the default 403/404 pages to any path
+                - a specific page, or view or panels if you're using those modules.</para></note>
+        </step>
+        <step>
+         <para>Go to Post Settings.</para>
+         <note><para>Note the number of posts on the home page.</para></note>
+        </step>
+        <step>
+         <para>Set it to 5 only.</para>
+        </step>
+        <step><para>The structure options contains the building blocks for your content.</para>
+           <para>What is a block?</para>
+           <para>What is a content type?</para>
+            <para>What is a menu?</para>
+           <para>What is a taxonomy?</para>
+        </step>
+          <step>
+            <para>The modules options allow you to enable and disable specific functionaility on
+              your site.</para>
+            <para>Enable the "module filter" module by clicking hte checkbox on the left and then
+              clicking "Save configuration". After the page re-loads notice that we have some new
+              functionality. </para>
+          </step>
+          <step>
+            <para>The appearence options allow you to select and configure what theme(s) your site
+              should use.</para>
+            <note>
+              <para>Explain the Administrative theme. Now is probably a good time to talk about the
+                overlay as well.</para>
+            </note>
+          </step>
+        <step>
+           <para>Go through people options</para>
+           <para>Permissions (we can create roles, new modules and content types will show additional permission options so always go back here after adding modules or new content types)</para>
+           <para>What are roles?</para>
+           <para>Users (compare to ability to manage content here ability to manage/edit users)</para>
+        </step>
+	  </procedure>
+    </task>
+      </section>
+      <section><!--Editing and publishing options-->
+       <title>Editing and publishing options</title>
+       <task><title>Adding another story and understanding publishing Options</title>
+        <tasksummary>To better understand the basic publishing options.
+       We'll create another "story" and demote the first page we created above so it is published, but not on the home page.</tasksummary>
+          <procedure>
+           <step><para>Let's first make a note of the link to the first article.</para>
+            <para>Click on the first article title. Jot down the URL somewhere.</para>
+           </step>
+            <step><para>Now, let's create a second article.</para>
+             <para>Click Create Content, then click Article.</para>
+            </step>
+            <step><para>Enter the following:</para>
+              <para>Title = <userinput>Welcome Returning Students!</userinput></para>
+              <para>Body = <userinput><markup>&lt;p&gt;&lt;strong&gt;Principal Dries&lt;/strong&gt; here!&lt;/p&gt;
+              &lt;p&gt;Welcome to a new school year at Drupal U!  We hope you are looking forward to the new year just as we are.  Check back soon for more news and information.  We'll have information for students, teachers, and parents.&lt;/p&gt;
+              &lt;p&gt; - &lt;em&gt;D.B&lt;/em&gt;&lt;/p&gt;</markup></userinput></para>
+            </step>
+            <step><para>Click Save, then go to the site home page.</para>
+              <note><para>Where does the story end up?</para></note>
+            </step>
+          </procedure>
+        </task>
+        <task>
+         <title>Making the first story "sticky"</title>
+          <procedure>
+           <step><para>Click the first story we created ("Drupal High Web site
+             Launched")</para>
+             <para>Let's say we want that story to stay at the top for awhile. This is known as "sticky" in Drupal.</para>
+            </step>
+            <step><para>Click "Edit".</para></step>
+            <step><para>Click the publishing options tab and select "Sticky at top of lists".</para></step>
+            <step><para>Click Save.</para></step>
+            <step><para>Go to the home page</para>
+             <note><para>Note this story comes to the top and has slightly different (theme-dependent) formatting.</para></note>
+            </step>
+          </procedure>
+        </task>
+        <task>
+         <title>Removing the story from the home page</title>
+          <procedure>
+            <note>
+              <para>
+              After awhile, we may not need that story so prominently highlighted, so let's take it off the home page.
+              </para>
+            </note>
+          <note>
+            <para>This time, instead of clicking into the article in order to edit it, lets use the
+              contextual links. Notice when you rollover the article teaser on the homepage a small
+              gear appears at the top right.</para>
+          </note>
+            <step><para>Click the contextual link gear and choose "edit."</para></step>
+            <step><para>Click the publishing options, deselect "Sticky" and "Promoted to home page".</para></step>
+            <step><para>Click Save, and notice we are right back on the home page.</para>
+             <note><para>Note it is no longer on the home page, but where did it go?</para></note></step>
+            <step>
+              <para>
+              Enter the URL you recorded earlier for that story (for example "localhost/drupalintro/node/1").
+              </para>
+              <note><para>Note that the story is still available</para></note>
+            </step>
+            <step><para>Return to the home page</para>
+          <para>As you can see, this story is still published, but where would a user find it from the home page?  Right now, the only way is thorugh a link. It is still accessible because it is published, but we need to link to it or something so visitors can get to it.</para>
+            <para>What if it were unpublished?  What if we don't have the link handy?  How do we as content editors find it later? We'll discuss that later...</para>
+           </step>
+          </procedure>
+        </task>
+      </section>
+      <section><!--Static Pages, the Basic Page Content Type-->
+        <title>Static pages, the Basic Page content type</title>
+          <task><title>Creating an "About Us" page.</title>
+           <note><para>This will be a placeholder for the typical "about us" page most
+             websites have.</para></note>
+            <procedure>
+             <step><para>Click Add Content, Basic page</para></step>
+             <step><para>Create the page as follows:</para>
+                <para>Title = <userinput>About Us</userinput></para>
+                <para>Body = <userinput>Placeholder for an about us page.</userinput></para>
+             </step>
+             <step><para>Click the "Publishing Options" tab</para>
+              <note><para>Note the difference from the story type - it is not promoted to home
+                page by default.  We'll promote it for now just so we can see it, but we
+                probably wouldn't want our about us page to be in our "news" section.</para></note>
+             </step>
+             <step><para>Change publishing options to "Promoted to home page" (and make sure it is "published" too!).</para></step>
+             <step><para>Save the page.</para></step>
+             <step><para>Go to the home page.</para>
+               <note><para>Note the differences vs. the story type we used before. There is no
+                user/date/time displayed. This makes sense for static content that will always
+              be there, but there is a way to control this behavior.</para></note>
+            </step>
+           </procedure>
+          </task>
+          <para>So what's the deal with stories having the date and username posted
+           displayed, and "page" content types not having it?  Those are called Post
+           Settings.  You can control them, but it is in an odd place...</para>
+      </section>
+      <section><!--Post Settings-->
+       <title>Content Type Settings</title>
+        <task>
+          <procedure>
+           <step>
+            <para>Don't change anything on this form right now, let's just explore.</para><para>Click Structure, Content Types, then click the "Edit" link next to the Basic Page content
+              type.</para>
+             <para>There you will see a set of tabs at the bottom of the screen. Click the "Dispay
+              settings" tab. Notice that you can choose to display the author and date information.
+              Do nt change anything here. </para>
+           </step>
+          <step>
+            <para>Click the "Submission form settings" tab. Here you can change the title of the
+              "title field" as well as control the preview button. </para>
+          </step>
+          <step>
+            <para>Click the "Publishing options" tab. Here you can set the default options for the
+              checkboxes in the "Publishing options" on the node edit form.</para>
+          </step>
+          <step>
+            <para>Click the "Comment settings" tab. Here you can control comments.</para>
+          </step>
+          <step>
+            <para>Click the "Menu settings" tab. Here you can control menus.</para>
+          </step>  
+          </procedure>
+        </task>
+      </section>
+      <section><!--Our first menu! A menu preview.-->
+       <title>Our First Menu! A Menu Preview</title>
+         <task>
+          <tasksummary>Hmm, that "About Us" page really doesn't belong in the "river of
+           news" on our home page.  How would a user typically access an "About Us" page?
+          Of course, through a menu. Let's see one way to do that.</tasksummary>
+          <procedure>
+           <step><para>Click the contextual links "gear" icon and choose "edit."</para></step>  
+            <step><para>Click the "Menu Settings" tab and check the "Provide a menu link" box.</para></step>  
+            <step><para>Put "About Us" as the menu title link</para>
+              <para>Note, but don't change, the default menu it will go on.  Also, don't
+               worry about the "weight" option for now.</para>
+            </step>  
+            <step><para>Go down to the "Publishing Options", and turn off "Promoted to Front Page"</para></step>  
+            <step>
+            <para>Save the page. </para>
+            <note>
+              <para>So it isn't in the river of news now. Can you find the menu choice where it is
+                now accessible? This is the default "Primary Menu" and it's positioning is based on
+                where the default Drupal "Bartik" theme puts the primary menu. As we'll see later,
+                other themes may display menus very differently. More on menus later!</para>
+            </note></step>
+          </procedure>
+        </task>
+        <note>
+          <para>Catchup Point! To catch up to this point apply Demo snapshot
+          "03-Completed_Content_Creation" (Administration, Site Building, Demonstration Site, Reset
+          Site)</para>
+        </note>
+      </section>
+    </chapter>
+    <chapter><!--Sources of Content - Blocks and Modules-->
+     <chapterinfo>
+       <title>Sources of Content - Blocks and Modules</title>
+      <abstract>
+       <para>So what is content really?  Where does information for our pages come from.</para>
+      </abstract>
+     </chapterinfo>	
+     <para> We've seen how to create article and page content types and where they are displayed.
+      But is that the only thing that is content? In the broadest sense content is anything visible
+      to the user.</para>
+      <para>Content can be:</para>
+      <orderedlist>
+          <listitem>
+              <para>Menus</para>
+          </listitem>
+          <listitem>
+              <para>Posted Content (stories, pages, other types we'll make)</para>
+          </listitem>
+          <listitem>
+              <para>User comments on stories (when enabled)</para>
+          </listitem>
+          <listitem>
+              <para>"Theme content" and such like site title, footer, site slogan, others</para>
+          </listitem>
+          <listitem>
+              <para>"Blocks" provided by modules (or created manually by you).  An example
+              is the user login block displayed when you go to a site without logging in.
+             If you install new modules they may add additional blocks that you can use!</para>
+          </listitem>
+          <listitem>
+              <para>Contributed modules like Views may even allow you to make your own
+               advanced block content without programming.</para>
+          </listitem>
+      </orderedlist>
+      <para>Let's take a look at how blocks may be provided by modules.</para>
+     <section><!--Place blocks already available from core modules-->
+        <title>Place blocks already available from core modules</title>
+        <task>
+          <procedure>
+           <step><para>Go to Structure, Blocks</para>
+            <note><para>Note the items already there in the default positions as placed by
+            Drupal install.  These blocks are all supplied by core modules enabled by
+            default.  Note there are a few that aren't placed anywhere yet.  Let's place
+            a couple.</para></note>
+           </step>
+            <step><para>Place "Who's Online", then place "Who's New" in sidebar first.</para></step>
+            <step><para>If necessary, select "None" for the "Demo Site Reset" block.</para></step>
+            <step><para>Try dragging them around using the drag handles!</para></step>
+            <step><para>Save.</para></step>
+            <step><para>Return to the home page</para>
+              <note><para>Note the new blocks displayed on the home page.</para></note>
+            </step>
+          </procedure>
+        </task>
+     </section>
+     <section><!--Enable another core module to get new page content-->
+      <title>Enable another core module to get new page content</title>
+      <task>
+       <title>Enable the new modules</title>
+       <procedure>
+        <step><para>Go to Modules in the Toolbar</para></step>
+        <step><para>Tpye "poll" in the filter list field</para></step>
+        <step><para>Enable the Poll Module</para></step>
+        <step><para>Click Save Configuration</para></step>
+       </procedure>
+      </task>
+      <task>
+      <title>Make a Poll</title>
+        <procedure>
+          <step><para>Choose "Add Content" from the gray shortcuts bar.</para>
+            <para>Hey look, a new content type (poll) is available ;)  Not all modules create
+            new content types, but some do.</para></step>
+          <step><para>Create a new poll as follows:</para>
+            <para>Title = What is your favorite class this year?</para>
+            <para>Choice 1 = <userinput>Drupal Intro</userinput></para>
+            <para>Choice 2 = <userinput>Theming 101</userinput></para>
+            <para>Choice 3 = <userinput>Ninja Development</userinput></para>
+          </step>
+          <step><para>Save the Poll</para>
+            <note><para>Don't vote on it yet!</para></note>
+          </step>
+          <step><para>Go to the home page</para>
+           <para>Note the poll appears on our home page in the "river of
+            news".</para>
+           <para>But what if we want the poll to appear on the side somewhere?</para>
+          </step>
+          <step><para>Go to Structure, Blocks</para>
+            <note><para>Note the new block available for "Most Redcent Poll" (another gift
+            from the poll module).</para>
+            </note>
+          </step>
+          <step><para>Add the "Most Recent Poll" block to the second sidebar</para></step>
+          <step><para>Save Configuration</para></step>
+          <step><para>Return to the home page</para>
+           <para>Hey there's our poll on the right side!  Don't vote on it yet ;)</para>
+           <para>But now we don't need it in the river of news anymore. Do you remember
+            how to remove it from there, but still leave it published?</para>
+          </step>
+          <step><para>Edit the "What is your favorite class this year poll?"</para></step>
+          <step><para>Click the publishing options tab and deselect the "Published to front page" option.</para></step>
+          <step><para>Save, then return to the home page.</para>
+            <note><para>Note that the Poll is no longer in the "river of news", but since
+              we have placed the most recent poll block it is still displayed in the side
+              bar - just what we wanted!</para></note>
+          </step>
+        </procedure>
+      </task>
+        <note>
+          <para>Catchup Point! To catch up to this point apply Demo snapshot
+          "04-Completed_Sources_of_Content"</para>
+        </note>
+     </section>
+    </chapter>
+    <chapter><!--Roles, Permissions, and Visibility-->
+     <chapterinfo>
+       <title>Roles, Permissions, and Visibility</title>
+      <abstract>
+       <para>Next we'll learn how users are categorized into "roles", how Drupal handles
+        permissions, and how we can affect visibility of page elements by role as well.</para>
+      </abstract>
+     </chapterinfo>	
+     <section><!--Roles and Permission-->
+       <title>Roles and Permissions</title>
+       <section>
+         <title>An Anonymous User</title>
+       <task>
+        <procedure>
+         <step><para>Log out.</para>
+          <para>When logged out we are treated by Drupal as the "anonymous" user.  Note
+           that we can't vote on the poll now. This is the default permission for
+           anonymous users as set by the poll module.  However, the poll module does
+           support anonymous user voting (it uses ip address to avoid dupes) if that is
+           what you want.  So how do we do that? </para></step>
+          <step><para>Log back in as "demo" (pw: demo11)</para></step>
+          <step><para>Go to the home page and vote on the poll</para>
+           <note><para>Note how it displays the results after you vote.  Now on to the roles and permissions.</para></note></step>
+        </procedure>
+       </task>
+      </section>
+      <section><!--Administering Permissions and User/1-->
+         <title>Administering Permissions and User/1</title>
+       <task>
+        <procedure>
+         <step><para>Go to People, Permissions</para>
+          <note><para>Note that anonymnous, authenticated &amp; administrator user roles are there automatically and
+                  can't be deleted.</para></note>
+          <para>What other roles might a typical site need/want? Editor? Member? Intern? Legal?
+                etc.</para>
+         </step>
+         <step><para>Look for permissions for the Poll Module</para>
+          <note><para>Note: It is common for modules to add permissions so this is a good
+           place to check after installing modules.  It is also a very common thing to
+           look for if a module's features don't work as you expect.</para></note>
+         <note><para>While we're here, also note the Node section of permissions.  Each
+           content type gets its own set of add/edit/delete permissions which is important
+         to remember when you start creating additional content types (which we'll learn
+         to do later).  A good reference on this topic can be found at
+         <ulink url="http://gotDrupal.com/videos/understanding-Drupal-permissions">http://gotDrupal.com/videos/understanding-Drupal-permissions</ulink></para></note>
+          <para>Note that neither anonymous nor authenticated user roles have
+            permissions to vote on polls. So even if new users register they won't be able
+            to vote on the poll at the moment.  Hmm, but didn't we just vote on a poll?  There
+            is something not obvious from this screen that requires explanation. The reason we are able to vote here is because the very first user you create during installation (known as user/1, and in Drupal 7 as the "site maintenance account") has special permissions.  User/1 automatically has all available permissions by definition.  You'll note that as a result user/1 doesn't even appear on this screen.</para>
+           <note><para>Another important note here - User/1 is also the only user who can
+           run update.php which is needed when upgrading modules or Drupal .  In Drupal 
+           7 this user is called the Site Maintenance user to further clarify this special
+           role.</para></note>
+          </step>
+          <step><para>Select the permission to allow authenticated users to "vote on
+            polls", then click "Save Permissions".</para></step>
+          <step><para>Return to the home page by closing the overlay.</para></step>
+        </procedure>
+       </task>
+      </section>
+     </section>
+     <section><!--Visibility by Role (and path...)-->
+       <title>Visibility by Role (and path...)</title>
+       <task>
+        <procedure>
+         <step><para>Log out.</para>
+          <note><para>Note that even anonymous users can currently see the "current poll"
+            block on the home page.</para></note></step>
+         <step><para>Click on the "Welcome Returning Students" story title.</para>
+          <note><para>Note that even when viewing a full story (node) page we can see all of the blocks on the right.</para></note>
+          <para>What if we want the "Who's online?", "Who's logged in?", and Poll block to
+          only show up on the home page?  We'll see that this is controlled by block
+          visibility.</para></step>
+         <step><para>Log back in as admin</para></step>
+         <step><para>Go to Structure, Blocks</para></step>
+         <step><para>Find the "Most Recent Poll" block and click
+           "Configure"</para><para>Take the time to review the block settings</para><para>Block Title, User specific visibility settings, Role specific visibility settings, Page specific visibility settings</para></step>
+         <step><para>Select "authenticated users" &amp; "administrator" for Role specific visibility.</para></step>
+         <step><para>For page specific visibility settings, select "Show only on the
+           listed pages", then enter "&lt;front&gt;" in the box (as per the comment below
+         the box!).</para></step>
+         <step><para>Repeat the previous two steps for the "Who's Online?", and "Who's
+           New?" blocks.</para></step>
+         <step><para>Go to the home page.</para>
+          <note><para>Note all three display</para></note></step>
+         <step><para>Click on the "Welcome Returning Students" story title</para>
+          <note><para>Note that none of the blocks display as we aren't on the home
+            page.</para></note></step>
+         <step><para>Return to the home page</para></step>
+         <step><para>Log out</para>
+          <note><para>Note that none display as we aren't authenticated
+            users.</para></note></step>
+         <step><para>Log in</para><para>Bonus question: Who can tell what is happening in
+          the left column of our Web site?  What causes it to show a login page when we
+          logout and a "navigation" menu in the same spot when we log in?  If you can
+          answer this then I know you understand the basics of blocks and
+          visibility!</para></step>
+        </procedure>
+       </task>
+       <sidebar><!--What to look for after enabling new modules-->
+         <title>What to look for after enabling new modules</title>
+         <para>We've seen that modules that we enable may add a number of features to our
+          site.  These are good pages to visit after enabling or adding a new module to
+          check for new functionality or settings (of course you should also read any
+          "readme" files or documentation available with a module).</para>
+         <variablelist>
+			<varlistentry>
+				<term>People, Permissions</term>
+				<listitem>
+				<para>
+                  Check here to see if there are new, module specific, permissions that
+                  need to be set.
+                </para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Content or Structure, Content Types</term>
+				<listitem>
+                  <para>
+                    See if the new module added any new content types.
+                  </para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Modules</term>
+				<listitem>
+                 <para> See what other settings screens this module may have defined. Next to each
+                enabled module you will see a configuration link. </para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Structure, Menus</term>
+				<listitem>
+                 <para>
+                  We haven't looked at this screen yet, but this is a good place to check
+                  if the module has created new menus.
+                </para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>INSTALL.txt or README.txt</term>
+				<listitem>
+                 <para>
+                  If this is a contrib module (we'll be looking at some shortly), then
+                  look in the folder for the module and look for INSTALL.txt or
+                  README.txt.  You should review these even before enabling a new
+                  module.
+                </para>
+				</listitem>
+			</varlistentry>
+         </variablelist>
+       </sidebar>
+        <note>
+          <para>Catchup Point!  To catch up to this point apply Demo snapshot
+           "05_RolesPermissionsBlockVisibility" (Administration, Site Building, Demonstration Site, Reset
+           Site)</para>
+        </note>
+     </section>
+    </chapter>
+    <chapter><!--Menus!-->
+     <chapterinfo>
+       <title>Menus!</title>
+      <abstract>
+       <para>So we did a little bit with menus ealier in the class (note the "About Us"
+        menu).  We'll now talk more about menus and how they are created/managed.</para>
+      </abstract>
+     </chapterinfo>	
+     <section><!--Add and edit menus while creating content-->
+      <title>Add and edit menus while creating content</title>
+      <para>We've already seen that one way to add something to the menu is to do so while
+       creating or editing content (nodes).</para>
+      <task>
+       <procedure>
+        <step><para>Click "About Us"</para></step>
+        <step><para>Edit It</para></step>
+        <step><para>Click the Menu Settings tab and note how we've currently added a Menu Link Title and put it on
+              the primary menu.</para><para>Let's add
+          something else to the primary menu. (We'll create a page with links to offsite
+          "pages of interest".</para></step>
+        <step><para>Click Add Content, then Basic Page</para></step>
+        <step><para>Create as follows:</para>
+         <para>Title = <userinput>Offsite Resources</userinput></para>
+         <para>Body = <userinput><markup>&lt;ul&gt;&lt;li&gt;&lt;a href="www.Drupal .org"&gt;Drupal Home Page&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="http://groups.Drupal .org"&gt;Drupal Groups&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</markup></userinput></para></step>
+         <step><para>Now, click "Menu Settings," check "Provide a menu link" and set as follows</para>
+          <para>Menu Link Title = <userinput>Resources</userinput></para>
+          <para>Parent Item = pick "Main Menu"</para>
+          <para>Weight = <userinput>0</userinput></para>
+          </step>
+        <step><para>Under "Publishing Options", ensure it is published, but not promoted
+          to home page.</para></step>
+          <step>
+            <para>Save</para>
+          </step>
+        <step><para>Go to home page</para>
+         <note><para>Note the addition to the primary menu.  However, we'd really like to
+         have "About Us" always be the last menu.</para></note>
+        </step>
+       </procedure>
+      </task>
+      <para>Understanding "weights" is our next step.</para>
+      <para>Currently the Primary menu is simply displaying items in alpha order.</para>
+      <task>
+       <procedure>
+        <step><para>Click "About Us"</para></step>
+        <step><para>Edit</para></step>
+        <step><para>Expand "Menu Settings" (if necessary) and note "Weight" (zero)</para></step>
+        <step><para>Do the same thing for the "Resources" menu item (i.e. edit it and look
+        at the Weight value)</para></step>
+      <para>Menus are one example where weight is used.  You'll see others as you get more
+      experienced.  Let's try something.</para>
+        <step><para>Click "About Us"</para></step>
+        <step><para>Edit</para></step>
+        <step><para>Change the weight to fifty (50)</para></step>
+        <step><para>Save</para>
+         <para>So what happened to the menu at the top?</para>
+         <para>Because it is "heavier", it sinks to the bottom.</para>
+         <para>This concepts of weights seems rather user unfriendly.  Is there a better
+          way?  With the advent of javascript in Drupal yes.</para></step>
+       </procedure>
+      </task>
+      </section>
+      <section><!--Managing Menus-->
+       <title>Managing Menus</title>
+        <task>
+         <procedure>
+          <step><para>Go to Structure, Menus</para>
+           <para>Note the default menus here.  Brief descriptions:</para>
+            <variablelist>
+               <varlistentry>
+                   <term>Main Menu</term>
+                   <listitem>
+                    <para>This is most commonly used as your site's main menu. It's display position
+                    is controlled by the theme (most commonly). When you add a content item to the
+                    menu this is typically the default for where it will go. </para>
+                   </listitem>
+               </varlistentry>
+               <varlistentry>
+                   <term>Management</term>
+                   <listitem>
+                   <para>Contains only links to administative tasks. </para>
+                   </listitem>
+               </varlistentry>
+               <varlistentry>
+                   <term>Navigation</term>
+                   <listitem>
+                   <para> This menu contains links intended for site visitors. Links are added to
+                    this menu automatically by some modules.</para>
+                   </listitem>
+               </varlistentry>
+              <varlistentry>
+                <term>User Manu</term>
+                <listitem>
+                  <para>Links related to teh current user's account (including Logout)</para>
+                </listitem>
+              </varlistentry>
+              </variablelist>
+             <para>Let's see how to add something manually to an existing menu.  For
+              example an offsite choice.</para>
+             </step>
+              <step><para>Click "List Links" next to Main Menu</para>
+               <para>Note the menu choices there which we created from previous posts (and
+              home).</para></step>
+              <step><para>Click "Add Link"</para>
+               <para>This will simply be a link to Drupal .org.  It is offsite so we need
+                a full url (note in comment, the format for internal links).</para></step>
+              <step><para>Create as follows:</para>
+               <para>Path: <userinput>http://drupal.org</userinput></para>
+               <para>Menu Link Title: <userinput>Drupal Home</userinput></para>
+               <para>Description: <userinput>Go to the home of Drupal!</userinput></para>
+               <para>Note, but don't change the other items.</para>
+              </step>
+              <step><para>Save</para>
+               <para>We wan't resources first.  We learned about weights before, but there
+                is an easier way here...</para></step>
+              <step><para>Drag "Home" to the top and "Resources" above "Drupal Home" using the drag handle.</para>
+               <para>Note the asterisk and the note about how this won't work till saved.
+              This is a common UI pattern with anything in Drupal that would be sortable, or
+              placeable, via drag and drop.  "Under the hood" weights are being set to
+              effect this, but you don't need to worry about that.</para></step>
+            <step><para>Click "Save Configuration"</para>
+             <note><para>If you are interested, edit each item in turn.  As you'll be able
+            to see Drupal plays fairly loose with the weights simply starting from the
+            lightest (-50) and working down.</para></note></step>
+         </procedure>
+        </task>
+      </section>
+      <section><!--Multi-Level Menus-->
+        <title>Multi-Level Menus</title>
+        <abstract>What about multi-level menus?  These may be displayed as flyout menus
+         (javascript or css hover based), or the submenu may appear only when you click on
+        the main menu.  This is a potential source of confusion in Drupal which we will
+        remedy now.</abstract> 
+       <task><!--Create an About Us/Staff Page-->
+         <title>Create an About Us/Staff Page</title>
+         <tasksummary>We'll create an about us page intended to appear under the "About
+          Us" menu item.</tasksummary>
+         <procedure>
+           <step><para>Select Create Content, then Page</para></step>
+           <step><para>Enter as follows:</para>
+            <para>Title: <userinput>Staff</userinput></para>
+             <para>Menu Settings:</para>
+             <para>- Menu Link Title = <userinput>Staff</userinput></para>
+             <para>- Parent Item = <userinput>About Us</userinput></para>
+             <para>Body: <userinput><markup>&lt;ul&gt;&lt;li&gt;Dries&lt;/li&gt;&lt;li&gt;Webchick&lt;/li&gt;&lt;li&gt;chx&lt;/li&gt;&lt;li&gt;merlinofchaos&lt;/li&gt;&lt;/ul&gt;</markup></userinput></para>
+           </step>
+           <step><para>Save</para></step>
+           <step><para>Go to the home page</para></step>
+           <step><para>Click "About Us"</para>
+            <para>Where is the staff page?</para>
+           </step>
+         </procedure>
+       </task>
+       <task><!--Display our submenu!-->
+         <title>Display our submenu!</title>
+         <tasksummary>So Drupal is not displaying our submenu choice?  To make Drupal 
+          display our second level menu choice we'll need to change menu settings
+          - let's see...</tasksummary>
+         <procedure>
+           <step><para>Go to Structure, Menus, then click "Settings" at the top right</para>
+           <para>[Describe these options]</para></step>
+           <step><para>Change "Source for Secondary Links" to "Main Menu"</para>
+           <para>[The help text describes what's going on here.]</para></step>
+           <step><para>Go to the home page</para></step>
+           <step><para>Click on "About Us"</para>
+           <para>[Note the display of the "Staff" at the top right choice. Other themes may (and do)
+              display differently.]</para></step>
+           <step><para>Click on "Staff" link to go to the staff page.</para></step>
+         </procedure>
+       </task>
+      </section>
+      <section><!--Displaying Menus as Blocks-->
+        <title>Displaying Menus as Blocks</title>
+        <task><!--Displaying Menus as Blocks-->
+          <title>Displaying Menus as Blocks</title>
+          <tasksummary>
+          <para> As we've seen, themes like the default Bartik may display the primary and/or
+            secondary menus in particular places. Another option is to display menus in blocks.
+            Drupal creates a block for each top level menu automatically.  </para>
+        </tasksummary>
+          <procedure>
+            <step><para>Go to Structure, Blocks</para></step>
+            <step><para>Scroll down to the disabled blocks</para>
+             <note><para>Note that Main Menu and User Menu are available.</para></note>
+            </step>
+            <step><para>Assign "User Menu" to Footer (above "Powered by Drupal)</para></step>
+            <step><para>Return to home page and note display</para>
+             <note><para>So between having main menu and user menus placed by theme, and having menus displayed in
+                blocks you have some options. I'll say that contributed themes have a great variety
+                in how they choose to display menus. This can make selecting a theme a challenge for
+                those not comfortable theming their site themselves or making major modifications to
+                existing themes.</para></note>
+            </step>
+          <step>
+            <para>Click the contextual links gear all the way to the right of the User Menu and
+              choose "configure block." Now enter &lt;none> in the Block title field and click Save
+              Block.</para>
+          </step>
+          </procedure>
+        </task>
+      </section>
+      <section><!--Menu Items Created by Modules-->
+        <title>Menu Items Created by Modules</title>
+        <task><!--Looking for Menus Created by Modules-->
+          <title>Looking for Menus Created by Modules</title>
+          <tasksummary>
+          <para>One thing to keep an eye out for is that new modules you enable may create menu
+            choices as part of their install. Often these menu items are created in a disabled state
+            and put on the "Navigation" menu by default. This is so you can readily find them and
+            move them wherever you want. Let's find a couple. </para>
+        </tasksummary>
+          <procedure>
+            <step><para>Go to Structure, Menus</para></step>
+            <step><para>Click on "list links" next to Navigation</para>
+             <note><para>Note the "Polls" menu (created as part of Poll module)</para></note>
+            </step>
+            <step><para>Click "Edit" for "Polls" menu</para></step>
+            <step><para>Select "enabled"</para></step>
+            <step><para>Change parent menu item to "Main Menu"</para></step>
+            <step><para>Click "Save"</para>
+              <note><para>Note Main menu display</para></note>
+              <para>Oops, we want "About Us" last again</para>
+            </step>
+            <step><para>Drag "Polls" above "About us"</para></step>
+            <step><para>Click "Save Configuration"</para></step>
+          </procedure>
+        </task>
+      </section>
+        <note>
+          <para>Catchup Point!  To catch up to this point apply Demo snapshot
+           "06_Menus" (Administration, Site Building, Demonstration Site, Reset
+           Site)</para>
+        </note>
+    </chapter>
+    <chapter><!--Taxonomy-->
+      <chapterinfo>
+       <title>Taxonomy</title>
+      </chapterinfo>
+      <abstract>
+       <para>Taxonomy is a big subject.  Basically it is a way to categorize or tag the content as you submit it.  It can be used in many ways.  We'll use it in two relatively simple ways for this site.  Taxonomy is composed of vocabularies.  If your site were about computers you might have one vocabulary for types of computer (laptop, desktop, server), another for default operating system (MAC, Win, Unix, Linux), etc.  You may want some vocabularies to be single select, others you may want to allow the user to choose more than one (a desktop that can run either Linux or Windows).  You may even want the user to define their own terms (free tagging like on Flickr).</para>
+      </abstract>
+      <section><!--Create a Taxonomy for "Sections"-->
+        <title>Create a Taxonomy for "Sections"</title>
+        <task><!--Create the Taxonomy-->
+          <title>Create the Taxonomy</title>
+          <tasksummary>First we'll create the taxonomy.  This taxonomy will be for tagging
+          stories with what "news section" they belong in.</tasksummary>
+          <procedure>
+            <step><para>Structure, Taxonomy</para></step>
+            <step><para>Select "Add Vocabulary"</para></step>
+            <step><para>Fill in options as follows</para>
+              <para>Vocabulary Name = <userinput>News Section</userinput></para>
+              <para>Description = <userinput>Which news section should this story be published in?</userinput></para>
+            </step>
+            <step><para>Save</para></step>
+          </procedure>
+        </task>
+        <task><!--Next we'll add terms to our new vocabulary.-->
+          <title>Next we'll add terms to our new vocabulary.</title>
+          <procedure>
+            <step><para>Click "Add Terms"</para></step>
+            <step><para>Fill in as follows</para>
+              <para>Term Name = <userinput>Sports</userinput></para>
+              <para>Description = <userinput>Sports news at Drupal High - keep up with the "Blue Drops"!</userinput></para>
+            <para>Everything else can stay the same.</para>
+             </step>
+            <step><para>Click save</para>
+             <note><para>Note that it automatically presents another term add screen.</para></note></step>
+            <step><para>Add additional terms as follows</para>
+              <para>Term Name = <userinput>Scholastic</userinput></para>
+              <para>Description = <userinput>Learn by the Drop - hey it's why you're here!</userinput></para>
+              <para>Term Name = <userinput>Clubs</userinput></para>
+              <para>Description = <userinput>The extracurricular side of Drupal </userinput></para>
+              <para>Term Name = <userinput>Arts and Music</userinput></para>
+              <para>Description = <userinput>Drupal Drupal Drupal Drupal Druuuupal...</userinput></para>
+              <para>Term Name = <userinput>General Announcements</userinput></para>
+              <para>Description = <userinput>A home for all announcements</userinput></para></step>
+            <step><para>Click on the "List" tab at the top of the overlay to go back to the list of terms for this
+              vocabulary</para>
+             <note><para>Note that on the "List" screen they can be manually dragged and dropped or reset to Alpha!</para></note>
+            </step>
+            <step><para>Drag "General Announcement" so it is at the top of the list.</para></step>
+            <step><para>Save</para></step>
+            <step>
+            <para>Its time to attach this vocabulary to the Article content type. Go to Structure,
+              Content types and click "manage fields" next to Article</para>
+          </step>
+          <step>
+            <para>Enter the following under "Add new field"</para>
+            <para>Label: <userinput>Sections</userinput></para>
+            <para>field_: <userinput>sections</userinput></para>
+            <para>field type: <userinput>Term reference</userinput></para>
+            <para>Form element: <userinput>Select list</userinput></para>
+            <para>Before clicking "Save", use the drag handle to move the "Add new field" form above
+              "Tags". Now click "Save"</para>
+          </step>
+          <step>
+            <para>On the Field Settings form, choose "News Section" as the vocabulary and click
+              "Save field setting"</para>
+          </step>
+          <step>
+            <para>For now, keep all the settings on teh next form as-is and click "Save settings"
+              and then go to the home page.</para>
+          </step>
+          </procedure>
+        </task>
+      </section>
+      <section><!--Vocabulary in Action-->
+        <title>Vocabulary in Action</title>
+        <task><!--Edit a story to include vocabular terms-->
+          <title>Edit the "Welcome Back" story to include vocabulary terms</title>
+          <tasksummary>Now that we've created the vocabularies (and applied them to our
+           story type) let's see how that works.</tasksummary>
+          <procedure>
+            <step><para>Edit the Welcome Back story</para></step>
+            <step><para>Note the two taxonomy fields. Modify as follows</para></step>
+            <step><para>Select "General Announcements"</para></step>
+            <step><para>Save story. If you are on teh home page, click the read more link on the "Welcome" story. </para>
+             <note><para>Note the link to "General Announcements" on the bottom of story.  Any terms selected for any vocab (or free-tagging for that matter) will show up here.  If you click the term it shows all content (of any type) with that term on it in a teaser style list.  Note the browser address and that the term name and description shows up at the top of the list.  Not very impressive for one story!</para></note>
+            </step>
+          </procedure>
+        </task>
+      </section>
+      <section><!--Taxonomy with More Content-->
+        <title>Taxonomy with More Content</title>
+        <task><!--See how Taxonomy loooks with more content-->
+          <title>See how Taxonomy loooks with more content</title>
+          <tasksummary>Let's add more content so we can see what taxonomy does to our
+           site.  We'll be applying a demo "snapshot" so we don't have to do this
+           manually.  Much of the content we'll see was generated by the Devel module
+           "generate" feature (all the lorem ipsum stuff).  That is beyond the scope of
+           this class, but pretty easy to figure out.</tasksummary>
+          <procedure>
+            <step><para>Click the "Snapshots" shortcut we created earlier in the gray shortcuts bar.</para></step>
+            <step><para>Select the "Reset" tab (top right)</para></step>
+            <step><para>Select "07b_ Completed_Generated_Content"</para></step>
+            <step><para>Click "Reset" and confirm</para></step>
+            <step><para>Retun to home page</para>
+              <note><para>You'll see a lot of "nonsense" content (latin) generated by devel module. I also added another
+                taxonomy for "school year"</para></note>
+            </step>
+          </procedure>
+        </task>
+        <task><!--Check out the new content and taxonomy-->
+          <title>Check out the new content and taxonomy</title>
+          <tasksummary>Now let's see how Drupal behaves with a decent amount of content.</tasksummary>
+          <procedure>
+            <step><para>Open the "Welcome" story and click the link for "General Announcements." Note the default
+              paging of content.</para></step>
+          </procedure>
+        </task>
+      </section>
+      <sidebar>
+       <title>Managing Your Content!</title>
+        <para>
+        A brief sidebar about managing content as your site grows.  How would you quickly
+        find content that isn't currently published? or happens to be tagged with
+        a specific term?  You may be looking to delete something, or perhaps promote it to
+        the home page.
+        </para>
+        <para>Go to Find content in the shortcut bar. Here you will find a query page that allows
+        you to look for content by specific parameters. When you find it, it allows for some bulk
+        operations such as promoting to home page, etc.</para>
+        <para>It is beyond the scope of this intro session, but you'll quickly find the
+         limitations of this page as your site grows.  See resources for this course for
+         contrib modules that expand the functionality of this page for additional bulk
+         operations and improved querying.</para>
+      </sidebar>
+    <note>
+      <para>Catchup Point! To catch up to this point apply Demo snapshot "08-Completed_Taxonomy"
+      </para>
+    </note>
+    </chapter>
+    <chapter><!--Themes-->
+      <chapterinfo>
+       <title>Themes</title>
+      </chapterinfo>
+      <abstract>
+        <para>So far we've not changed the "look and feel" of our site an any significant
+        way.  What if we want a very different look to our site?  This course does NOT
+        cover how to create and modify themes.  However, we will see how to apply a theme
+       that was already created to your site and view the effects so we'll have an idea of
+      what is possible with theming.</para>
+      </abstract>
+      <section><!--Try a New Theme (or Two)-->
+        <title>Try a New Theme (or Two)</title>
+        <task><!--Apply a New Theme-->
+          <title>Apply a New Theme</title>
+          <procedure>
+           <step><para>Go to Appearence</para>
+             <note><para>Note the list of available themes. Some of these are provided with Core (Stark for example),
+                others are themes that were included with the class files (available from
+                drupal.org).</para></note>
+           </step>
+            <step><para>Find the "Garland" theme, select "enable and set as default"</para></step>
+            <step><para>Go to the home page</para></step>
+            <step><para>Click the "About Us" menu at the top</para>
+              <note><para>Note where the secondary menu (the Staff link) appears. Rather different than the default
+                Garland theme.</para></note>
+              <para>Let's try another.</para>
+            </step>
+            <step><para>Go to Appearence</para></step>
+            <step><para>Find the "Stark" theme, enable it and make it the default</para>
+            <note>
+              <para>Stark is a bit special. Stark has just the absolute minimum css to create a
+                three column layout. Other than that it basically has no css or theming whatsoever.
+                It is frequently used by themers who want to see what drupal core and various drupal
+                modules output in the absence of a theme.</para>
+            </note></step>
+          </procedure>
+        </task>
+        <task><!--Apply our preferred theme for Ournews-->
+          <title>Apply our preferred theme for Ournews</title>
+          <tasksummary>We'll now apply the theme we want for our finished site.</tasksummary>
+          <procedure>
+           <step><para>Go to Administer, Site Building, then Themes</para></step>
+           <step><para>Find the "MarinelliH" theme, enable it and make it default</para></step>
+           <step><para>Click "Save Configuration"</para></step>
+           <step><para>Now, find "Marinelli" in the list once more and click "settings"</para>
+             <note><para>Some themes include additional configuration options.  In the
+               case of Marinelli specifically there is an option to have a dynamic drop
+               down menu that we want to take advantage of.</para></note>
+           </step>
+           <step><para>In the configure screen, first uncheck "Site slogan." Then under the "Primary menu settings"
+              section (towards the bottom), choose <userinput>Mega Drop Down</userinput> for "Which
+              kind of primary links do you want ot use" and for "Megamenu Source" set it to
+                <userinput>Main menu</userinput></para></step>
+           <step><para>Click "Save Configuration"</para></step>
+           <step><para>Go to the home page</para>
+             <note><para>Note the way marinelli puts both sidebars on the right.  Also
+               note the way marinelli displays the primary links menu as a drop
+               down.</para></note>
+             <note><para>We will use Marinelli for the rest of the course.  Note that this
+               version of Marinelli includes some specific theming to support the site we
+               are building.  Creating or modifying themes beyond this is beyond the scope
+               of this class.</para></note>
+           </step>
+          <step>
+            <para>Let's quickly fix our user menu. Go to Structure, Blocks and move the "User menu"
+              block to the "Utility (top)" region</para>
+          </step>
+          </procedure>
+        </task>
+        <note>
+          <para>Catchup Point! To catch up to this point apply Demo snapshot
+          "09-Completed_Theme_Settings"</para>
+        </note>
+      </section>
+    </chapter>
+    <chapter><!--Fields-->
+      <chapterinfo>
+       <title>Fields</title>
+      </chapterinfo>
+      <abstract>
+        <para>As of Drupal 7, fields have been added to core. They allows you to provide your
+        content types with richer, more structured, data. In Drupal 6 you would have to use a
+        contrib module called CCK to acheive this and you could only use it to add fields to nodes.
+        In Drupal 7, fields can be added to nodes, users, taxonomy terms, etc.</para>
+      </abstract>
+      <para>Rough instructions for now.
+       Modules
+       Basic cck modules + link, node reference, user reference, date, date api, date
+       popup, date timezone, token (not sure if I need yet), advanced help.
+      </para> 
+      <section><!--Install Needed Modules-->
+        <title>Install Needed Modules</title>
+        <task><!--Install Needed Modules-->
+          <title>Install Needed Modules</title>
+          <tasksummary>
+          <para>Add the following modules to support theFields/Views portion of the course.</para>
+        </tasksummary>
+          <procedure>
+           <step><para>Go to Modules</para></step>
+           <step>
+            <para>Select these modules: </para>
+            <para>Date</para>
+            <para>Date Popup</para>
+            <para>Field Collection</para>
+            <para>Advanced Help</para>
+            <para>cTools</para>
+            <para>Views</para>
+            <para>Views UI</para>
+          </step>
+           <step><para>Click "Save Configuration" to enable these modules.</para></step>
+          </procedure>
+        </task>
+        <note>
+          <para>Notice that Drupal automatically recognizes that the Field Collection modules
+          requires the "entity" module and notifies you that this module will be enabled as
+          well.</para>
+        </note>
+      </section>
+      <section><!--Create a Staff Content Type-->
+        <title>Create a Staff Content Type</title>
+        <para>Our first brand new content type for the Drupal High site will be a Staff
+         content type.  We have lots of staff at our school such as teachers,
+         administrators, Department heads, etc.  We'd like to capture information about
+         staff for display purposes on the site.  We'll also need to reference staff
+         members from other content on the site.</para>
+        <task><!--Create the Staff Content Type-->
+          <title>Create the Staff Content Type</title>
+          <tasksummary>We'll start by creating the new content type.</tasksummary>
+          <procedure>
+           <step><para>Go to Structure, Content Types</para></step>
+           <step><para>Click "Add Content Type" to add a new type</para></step>
+           <step><para>Edit the new type configuration as follows:</para>
+            <para>Name: <userinput>Name</userinput><note>
+                <para>Notice that a machine name is automagically created. This is the unique
+                  idenitifier used by Drupal to allow us to export our content type and reuse it on
+                  another site or on another environment. </para>
+              </note></para>
+            <para>Description: <userinput>Capture basic information about a staff member (or student website volunteer).</userinput></para>
+            <para>In the Submission Form Settings tab:</para>
+            <para>Title Field Label: <userinput>Display Name</userinput></para>
+            <para>Preivew before submitting: <userinput>Optional</userinput></para>
+            <para>Explanation or Submission Guidelines: <userinput>Use this to capture
+              basic information about staff members (or student website volunteers) on our
+            site.</userinput></para>
+            <para>In the Publishing options tab:</para>
+            <para>Default Options: Turn on "Published".  Turn off "Promoted to Front
+             Page". "Sticky at top of lists" and "Create a New Revision" should also be
+             off.</para>
+            <para>In the Display Settings tab:</para>
+            <para>Uncheck the display author and date information</para>
+            <para>In the Comment Settings tab:</para>
+            <para>Default Comment Setting: <userinput>Hidden</userinput></para>
+            <para>In the Menu Settings tab:</para>
+            <para>Available menus: <userinput>Main Menu</userinput></para>
+            <para>Default parent item: <userinput>Staff</userinput></para>
+           </step>
+           <step><para>Click "Save and add fields" to save the new staff type</para></step>
+          </procedure>
+        </task>
+        <task><!--Add detailed Name Fields-->
+          <title>Add detailed Name Fields</title>
+          <tasksummary>Although we set the Title field to be "Display Field", we probably
+          want to capture First Name, Middle Name, and Last Name as separate fields too.
+         That way we can display names in different ways, also we may need those
+         separately for sorting.  We'll create basic name fields now.</tasksummary>
+          <procedure>
+           <title>Create a First Name field</title>
+           <step><para>Towards the bottom of the current field list find the "Add New Field" row</para></step>
+           <step><para>In that new field row enter <userinput>First Name</userinput> in the first box, that
+             will be the label.  Enter <userinput>first_name</userinput> in the second box. For field type select <userinput>Text</userinput>, and finally for the widget select <userinput>Text Field</userinput></para></step>
+           <step><para>Now use the drag handles next to this new field row to drag it
+           just undernead the existing "Display Name" field.</para></step>
+           <step><para>Click "Save"</para>
+             <note><para>Since you added a new field a new field settings screen will
+               appear.  This allows you to set more detailed options for your new
+               field.</para></note>
+           </step>
+          <step>
+            <para>Every type of field will ask you for different field settings. In this case the
+              text field asks for a "Max length." Enter 255 here and click "Save field
+              settings."</para>
+          </step>
+           <step><para>Find and select the "Required" option.  We want the First Name
+             field to always be filled in.</para>
+             <para>We don't want to modify any other settings fields, but let's briefly
+              describe some of the options that commonly appear here and what they
+              do.</para>
+             <variablelist>
+               <title>Field Options</title>
+              <varlistentry>
+                <term>Label</term>
+                <listitem>
+                  <para>The label that will be shown on the edit form as well as when an item of
+                    this content type is displayed.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>Required</term>
+                <listitem>
+                  <para> You'll find this in a section of "Global Settings" that will apply to this
+                    new field in any content type you use it. Required means this field must be
+                    filled in by the user. </para>
+                </listitem>
+              </varlistentry>
+               <varlistentry>
+                 <term>Help Text</term>
+                 <listitem>
+                  <para>
+                   Whatever you put for help text is displayed on the editing form for
+                   this content type just below the field.  This is instructions to the
+                   user on what they should be putting into this field (if needed).
+                  </para>
+                 </listitem>
+               </varlistentry>
+              <varlistentry>
+                <term>Size of textfield</term>
+                <listitem>
+                  <para> How big should the form field be. </para>
+                </listitem>
+              </varlistentry>
+               <varlistentry>
+                 <term>Number of Values</term>
+                 <listitem>
+                  <para>
+                   CCK fields can allow for multiple values.  The database implications of
+                   this (and also of using a field in more than one content type) are
+                   important.
+                  </para>
+                 </listitem>
+               </varlistentry>
+               <varlistentry>
+                 <term>Text Processing</term>
+                 <listitem>
+                  <para>
+                   Plain Text vs. Filtered Text.  Filtered text in this case means that
+                   the user would be able to enter HTML for example.  Any user input that
+                   could have problematic input (such as HTML with scripts, etc.) has to
+                   go through a filtering process in Drupal.  If you don't need that extra
+                   overhead for a field then you'll want Plain Text.
+                  </para>
+                 </listitem>
+               </varlistentry>
+             </variablelist>
+             <note><para>Other Field Types</para>
+                  <para> Other field types may present different or additional options. Make sure to
+                review all options carefully to ensure you get the functionality you are looking
+                for. There are a number of field types that come with core, and there are a many
+                other field types that are made available with the installation of other modules. </para>
+             </note>
+           </step>
+           <step><para>Click "Save Settings" to complete the addition of the First Name field</para></step>
+          </procedure>
+          <procedure>
+            <title>We'll create Middle Name and Last Name fields as well</title>
+            <step><para>If you aren't on the Manage Fields page for the Staff content type, go to Structure, Content
+              Types and click "Manage Fields" for the Staff content type.</para></step>
+            <step><para>At the bottom, create another new field similar to what we just did
+              with First Name field above as follows:</para>
+              <para>New Field Label: <userinput>Middle Name</userinput></para>
+              <para>New Field Name: <userinput>middle_name</userinput></para>
+              <para>Type: <userinput>Text</userinput></para>
+              <para>Widget: <userinput>Text Field</userinput></para>
+              <para>Put it just below the First Name Field and click "Save"</para>
+              <para>Use the same settings that we used for First Name EXCEPT we don't want
+               Middle Name to be required.</para>
+            </step>
+            <step><para>Now create one more new field similar to what we just did
+              with First Name and Middle Name fields as follows:</para>
+              <para>New Field Label: <userinput>Last Name</userinput></para>
+              <para>New Field Name: <userinput>last_name</userinput></para>
+              <para>Type: <userinput>Text</userinput></para>
+              <para>Widget: <userinput>Text Field</userinput></para>
+              <para>Put it just below the Middle Name Field and click "Save"</para>
+              <para>Use the same settings that we used for First Name field (we DO want
+               Last Name to be required).</para>
+            </step>
+          </procedure>
+        </task>
+        <task><!--Add a Photo Field-->
+          <title>Add a Photo Field</title>
+          <tasksummary>We'll now add a photo field for our Staff content type - taking
+           advantage of the Imagefield module.
+          </tasksummary>
+          <procedure>
+           <step><para>If not on the manage fields page for the Staff content type, go to
+           Administer, Content Management, Content Types then click "Manage Fields"</para></step>
+           <step><para>Add a new field as follows:</para>
+             <para>New Field Label: <userinput>Photo</userinput></para>
+             <para>New Field Name: <userinput>photo</userinput></para>
+             <para>Type: <userinput>Image</userinput></para>
+             <para>Widget: <userinput>Image</userinput></para>
+           </step>
+           <step><para>Drag this new field just below the "Last Name" field, then click
+             "Save"</para></step>
+          <step>
+            <para>On the field settings form, choose "Public files". For the default image, use the
+              "silhouette" image included with this curriculum (in the assets folder). Click "Save
+              field settings"</para>
+          </step>
+           <step><para>In the settings page that follows accept the defaults other than the following:</para>
+            <para>Maximum Resolution for Images: <userinput>600x600</userinput></para>
+            <para>Minimum Resolution for Images: <userinput>200x200</userinput></para>
+            <para>In the Global settings, mark the field "Required"</para>
+            <para>Check off "Enable Title Field"</para>
+            <para>Click "Save Field Settings" to save the field</para>
+           </step>
+          </procedure>
+          <para>Before continuing let's briefly review some of the Imagefield Settings
+           that we didn't modify:</para>
+          <variablelist>
+            <title>Imagefield Settings</title>
+            <varlistentry>
+              <term>Allowed File Extensions</term>
+              <listitem>
+               <para>
+                You'll see this setting for all Filefields, not just imagefields.  Allows
+                you to control the file types that users can upload.
+               </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Maximum Upload Size</term>
+              <listitem>
+               <para>
+                Allows you to limit the size of files accepted.
+               </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Enable Alt, Title field</term>
+              <listitem>
+               <para> Allows an uploader to enter these HTML attributes for this image. </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>File Directory</term>
+              <listitem>
+               <para>
+                Allows you to set where under the site files directory the uploaded files
+                will go.  This is especially helpful when you are using Token module.  For
+                example, you could have each user's file uploads go to a directory with
+                their username, etc.  Helps to not have all files in one big folder. We're
+                not going to talk about Tokens in detail in this course, but it is
+                definitely recommended that you research their use in various
+                circumstances.
+               </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Alt and Title Text Settings</term>
+              <listitem>
+               <para>
+                Images and more particularly the img tag should have an ALT and TITLE
+                attribute.  If it is important for the user uploading the image to enter
+                something specific there (rather than have the default) you can set that
+                option here.
+               </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Default Image</term>
+              <listitem>
+               <para>
+                Self explanatory.  You're image field can have a default image if the user
+                doesn't upload anything.  We've seen this sort of thing before.  You
+                upload an image for your user "avatar" on many sites.  If you don't upload
+                one then the site shows a "silouette" of some sort.  Allows your site to
+                maintain a consistent look and feel even when an image is not uploaded by
+                the user.
+               </para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </task>
+        <task><!--Add a Staff Positions field-->
+          <title>Add a Staff Positions field</title>
+          <tasksummary>We'll use an integer field and explore a different widget type.  In
+          this case we want to display some position types to select for each staff
+          member.</tasksummary>
+          <procedure>
+           <step><para>If necessary go to the Manage Fields page for the Staff content
+             type following previous instructions</para></step>
+           <step><para>Add a new field as follows:</para>
+             <para>New Field Label: <userinput>Position</userinput></para>
+             <para>New Field Name: <userinput>staff_position</userinput></para>
+             <para>Type: <userinput>List (text)</userinput></para>
+             <para>Form Element to Edit Data: <userinput>Check boxes/radio
+              buttons</userinput></para>
+           </step>
+          <step>
+            <para>Under Allowed values list, enter:</para>
+            <para><userinput>Teacher</userinput></para>
+            <para><userinput>Department Head</userinput></para>
+            <para><userinput>Dean</userinput></para>
+            <para><userinput>Assistant Principal</userinput></para>
+            <para><userinput>Principal</userinput></para>
+            <para><userinput>Student Volunteer</userinput></para>
+          </step>
+          <step>
+            <para>Click "save field settings"</para>
+          </step>
+           <step><para>In the settings page that follows accept the defaults except the
+             following :</para>
+            <para>Help Text: <userinput>Select which positions apply to this staff member.</userinput></para>
+            <para>Number of Values: <userinput>Unlimited</userinput></para>
+           </step>
+           <step><para>Click "Save Field Settings" to save the field</para></step>
+          </procedure>
+        </task>
+        <task><!--Create Staff Nodes to Test-->
+         <title>Create Staff Nodes to Test</title>
+         <tasksummary>We'll create two staff nodes to confirm our content types work.</tasksummary>
+         <procedure>
+          <step><para>Go to Add Content, then Staff</para></step>
+          <step><para>Enter/select values as follows:</para>
+            <para>Display Name: <userinput>Tobias Funke</userinput></para>
+            <para>First Name: <userinput>Tobias</userinput></para>
+            <para>Last Name: <userinput>Funke</userinput></para>
+            <para>Photo Name: Upload <userinput>tobiasfunke.jpeg</userinput> (find it in course
+              "assets" folder)</para>
+            <para>Bio: <userinput> Oh Tobias, where to begin with Tobias.  Tobias Fünke is the
+                ridiculous husband of Lindsay Bluth and the father of Maeby.  Tobias was once a
+                respectable man who was the chief resident of psychiatry at Massachusetts General
+                Hospital.  But after losing his license, Tobias finally decides to become an actor
+                during season one.  The highlights of his career include "frightened inmate number
+                two" in a prison movie, being an understudy for the Blue Man Group, and selling out
+                his family to star in a documentary</userinput></para>
+            <para>Positions: <userinput>Teacher</userinput></para>
+          </step>
+          <step>
+            <para>Under Menu settings, check "Provide a munu link". Notice that the "Parent item" is
+              already set to staff. </para>
+          </step>
+          <step>
+            <para>Just for demo purposes, go to the "Publishing options" and check off "Promote to
+              front page"</para>
+          </step>
+          <step><para>Click Save</para>
+            <note><para>Note the display in full node view.</para></note>
+          </step>
+          <step><para>Create another Staff node using the same procedure as above as
+            follows:</para></step>
+          <step><para>Enter/select values as follows:</para>
+            <para>Display Name: <userinput>George Michael Bluth</userinput></para>
+            <para>First Name: <userinput>George</userinput></para>
+            <para>Middle Name: <userinput>Michael</userinput></para>
+            <para>Last Name: <userinput>Bluth</userinput></para>
+            <para>Photo Name: Upload <userinput>georgemichaelbluth.jpeg</userinput> (find it in
+              course downloads "assets" folder)</para>
+            <para>Bio: <userinput> Hello, I am George Michael Bluth..how's this microphone pin on
+                it's like..it's ticklish. I'm sorry, could i get like, a juice or something? It's
+                kind of famishing. No, it's nothing, but it is kind of hot- you know what, forget
+                it, Ann was planning of bringing some wheat-grass anyway. What a swell gal.
+                Sometimes she just, she puts an egg in her mouth and she mushes it around, and get
+                some mayonnaise, and hmhmmhhm and she...she calls it a MAYONEGG! About myself? Well,
+                I like pizza..I'm a Taurus, i believe. That's July, right? Yeah that's
+                right.</userinput></para>
+            <para>Positions: <userinput>Teacher, Department Head</userinput></para>
+          </step>
+          <step><para>Under Menu settings, check "Provide a munu link". Notice that the "Parent item" is already set
+              to staff.</para></step>
+          <step>
+            <para>Just for demo purposes, go to the "Publishing options" and check off "Promote to
+              front page"</para>
+          </step>
+          <step><para>Click Save</para></step>
+         </procedure>
+        </task>
+      </section>
+      <section><!--Image presets-->
+        <title>Image styles</title>
+        <task><!--Create Image Styles-->
+          <title>Create Image styles</title>
+          <tasksummary>
+          <para>One important feature of many websites is for an image to be displayed in different
+            ways in different places. In Drupal that is handled with image styles. We'll detour here
+            to create.modify some presets for our site.</para>
+        </tasksummary>
+          <procedure>
+           <title>Create a thumbnail preset</title>
+           <step><para>Go to Configuration, image style</para></step>
+           <step><para>Click "Edit" next to thumbnail</para></step>
+           <step><para>We want our images to be perfectly square, so click "Override defaults"</para></step>
+           <step><para>In the "Effects" table, lets delete the "Scale 100x100" effect</para></step>
+           <step><para>Choose "Scale and Crop" and click the Add button</para></step>
+           <step><para>Put <userinput>100</userinput>  for BOTH Width and Height.</para>
+           </step>
+           <step><para>Click "Add effect"</para></step>
+           <step><para>Click "Update Style"</para></step>
+           <step><para>To get back to the list of presets click the "Image styles" in the breadcrumb.</para></step>
+          </procedure>
+        </task>
+      </section>
+      <section><!--Field Display Options-->
+       <title>Field Display Options</title>
+        <task><!--Set Field Display Options-->
+         <title>Set Field Display Options</title>
+         <tasksummary>
+          <para>Drupal also provides you with some ability to control how your fields are output.
+            This is through the use of formatters which appear on the "Display Fields" screen. It
+            provides limited ability to select the layout of your content type display in teaser
+            lists and full node display. One nice feature is that image fields automatically
+            presents imagecache presets as display options For full control theming will be required
+            which is beyond the scope of this course.</para>
+        </tasksummary>
+         <procedure>
+          <step><para>Go to Structure, then Content Types</para></step>
+          <step>
+            <para>Under "Custom display settings" check off "Full Content" and "Teaser" and click
+              "Save"</para>
+          </step>
+          <step>
+            <para>Click "Full Content" on the top right of the overlay</para>
+          </step>
+          <step><para>Set the label options for each field as follows:</para>
+            <para>First Name: <userinput>Inline</userinput></para>
+            <para>Middle Name: <userinput>Inline</userinput></para>
+            <para>Last Name: <userinput>Inline</userinput></para>
+            <para>Photo: <userinput>Above</userinput></para>
+            <para>Positions: <userinput>Above</userinput></para>
+          </step>
+          <step><para>For the Photo field, click the gear to the right and set the "image style to
+                <userinput>large</userinput> and "Link image" to <userinput>nothing</userinput> and
+              click "Update"</para></step>
+          <step>
+            <para>Click the "Save" button.</para>
+          </step>
+          <step>
+            <para>Now Click the teaser link (top right)</para>
+          </step>
+          <step><para>Drag the photo field above the body field and set its label to "hidden"; For the "First Name",
+              "Middle Name", "Last Name", "Positions" - drag the fields to
+                <userinput>hidden</userinput></para></step>
+          <step>
+            <para>Click the gear to the right of the photo and set it to "Thumbnail" and link to
+              node.</para>
+          </step>
+          <step>
+            <para>Click the gear to the right of body and set the trim length to 250. Click
+              "Update"</para>
+          </step>
+          <step><para>Click "Save"</para></step>
+         </procedure>
+        </task>
+        <task><!--View a Staff Node in teaser and full node-->
+          <title>View a Staff Node in teaser and full node</title>
+          <tasksummary>We'll now view a staff node in teaser and full node to see the
+           impact of our display fields choices.</tasksummary>
+          <procedure>
+           <step><para>Go to the Home Page</para></step>
+           <step><para>Since we promoted our first two staff nodes created to the home page we should see them as
+              teasers. Note the display changed to small icon (100 x 100)</para></step>
+           <step><para>Click one of the thumbnails</para>
+           </step>
+           <step><para>Use the back button in your browser to go back to the site, then to the home page</para></step>
+          </procedure>
+        </task>
+      <para>We should take a second to edit the two staff members and uncheck the "promote to front
+        page" option. Notice that there are no contextual links anymore on our nodes. This is
+        because the Marianelli theme doesnt support them. :( To edit, cimply click into the node and
+        click the Edit tab under the title.</para>
+      <note>
+        <para>Optional Catchup Point! To catch up to this point apply Demo snapshot
+          "10-Completed_Create_Content_Type"</para>
+      </note>
+      </section> 
+    </chapter>
+    <chapter><!--Views-->
+      <chapterinfo>
+       <title>Views</title>
+      </chapterinfo>
+      <abstract>
+        <para>Now that we have some content (and a new Staff content type) let's take a
+         first look at Views.</para>
+      </abstract>
+      <section><!--Start a Staff View-->
+        <title>Create a Staff View</title>
+        <para>We'll start with two basic view displays to display our Staff information as
+         desired</para>
+        <task><!--Create a Staff View-->
+          <title>Create a Staff View</title>
+          <tasksummary>
+          <para>Now that we have a Staff content type we want to create a view to display it as both
+            a page and a sidebar block. .</para>
+        </tasksummary>
+          <procedure>
+           <title>Initialize the View</title>
+           <step><para>Go to Structure, then Views</para></step>
+           <step><para>On the Views listing page click the "Add new view" link to create a new View.</para></step>
+           <step><para>Start by filling in:</para>
+            <para>View Name: <userinput>Staff Listing</userinput></para>
+            <para>Show: <userinput>Content</userinput> of type <userinput>Staff</userinput> ordered
+              by <userinput>Title</userinput></para>
+           </step>
+           <step><para>Check off "Create a page"</para></step>
+          <step>
+            <para>Fill out the "Page" form using the following settings:</para>
+            <para>Page Title: <userinput>Staff Listing</userinput></para>
+            <para>Path: <userinput>staff-listing</userinput></para>
+            <para><userinput>Unformated</userinput> list of <userinput>Full Post</userinput>
+              <userinput>Without Links</userinput>
+              <userinput>Without Comments</userinput></para>
+            <para>Items to display: <userinput>3</userinput></para>
+            <para>Check : <userinput>Use pager</userinput> &amp; <userinput>Include
+              RSS</userinput></para>
+          </step>
+          <step>
+            <para>Check off "Create a block"</para>
+          </step>
+          <step>
+            <para>Fill out the "Block" form using the following settings:</para>
+            <para>Block Title: <userinput>Staff Listing</userinput></para>
+            <para><userinput>Unformated</userinput> list of <userinput>Teasers</userinput>
+              <userinput>Without Links</userinput>
+              <userinput>Without Comments</userinput></para>
+            <para>Items to display: <userinput>5</userinput></para>
+            <para>Check : <userinput>Use pager</userinput></para>
+          </step>
+          <step>
+            <para>Click "Continue &amp; Edit"</para>
+          </step>
+          </procedure>
+         </task>
+        </section>
+         <section><!--Move Staff Page Menu-->
+           <title>Move Staff Page Menu</title>
+           <para>Since we already added the page display of our staff to the primary links
+           menu already using the options views provides there isn't much to do here!</para>
+           <procedure>
+        <step>
+          <para>Click the "no menu" link next to Menus (center column)</para>
+        </step>
+        <step>
+          <para>Fill out the form using the following settings:</para>
+          <para>Type: <userinput>Normal Menu Entry</userinput></para>
+          <para>Title: <userinput>Staff Listing</userinput></para>
+          <para>Description: <userinput>A view of staff members</userinput></para>
+          <para>Menu: <userinput>Main Menu</userinput></para>
+          <para>Weight: <userinput>0</userinput></para>
+        </step>
+        <step>
+          <para>Click "Apply"</para>
+        </step>
+        <step>
+          <para>Click "Save" (Top right)</para>
+        </step>
+        <step>
+          <para>Now we have 2 menu items for a staff list. Lets fix that. Go to Structure, Menus and
+            click the "list links" link next to Main Menu</para>
+        </step>
+        <step>
+          <para>Drag the "Site Listings" link "into" the "About Us" and move all the staff member
+            links "into" the "Site Listings". </para>
+        </step>
+        <step>
+          <para>Click "Save configuration"</para>
+        </step>
+        <step>
+          <para>Finally, lets go ahead and delete the old "Staff" page. Go to "Find content".</para>
+        </step>
+        <step>
+          <para>Scroll down and find the "Staff" basic page and click the delete link to the
+            right.</para>
+        </step>
+      </procedure>
+         </section>
+    <section>
+      <!--Display the staff listing block-->
+      <title>Display the staff listing block</title>
+      <para>Now that we have our staff list page setup, lets deal with the block!</para>
+      <procedure>
+        <step>
+          <para>Click Structure, Blocks</para>
+        </step>
+        <step>
+          <para>Notice there is a new block called "View: Staff listing." Let's move that directly
+            under the "User Login" block in the "First Sidebar." ... And while we're here, why dont
+            we move the Who's online and Who's new blocks to the second sidebar under the
+            poll.</para>
+        </step>
+        <step>
+          <para>Click "Save blocks" and go to the homepage.</para>
+        </step>
+      </procedure>
+    </section>
+    </chapter>
+  <chapter>
+    <!--Controling your markup with Display Suite-->
+    <chapterinfo>
+      <title>Controling your markup with Display Suite</title>
+    </chapterinfo>
+    <abstract>
+      <para>Things are looking almost good now ... Lets make it look exactly how we want it
+        now.</para>
+    </abstract>
+    <section>
+      <!--Modifying a view mode-->
+      <title>Modifying a view mode</title>
+      <para>First things first - lets enable display suite.</para>
+      <task>
+        <!--Enable Display Suite-->
+        <procedure>
+          <para>Enable Display Suite</para>
+          <step>
+            <para>Go to Structure, modules</para>
+          </step>
+          <step>
+            <para>Enable the Display Suite module as well as the Display Suite Extras module.</para>
+          </step>
+        </procedure>
+      </task>
+      <task>
+        <!--Use Display Suite to layout a teaser view mode-->
+        <procedure>
+          <para>Use Display Suite to layout a teaser view mode</para>
+          <step>
+            <para>Go to Structure, content tpyes and click "manage display" next to staff</para>
+          </step>
+          <step>
+            <para>Choose "teaser" form the list of build modes (top right).</para>
+          </step>
+          <step>
+            <para>At the bottom of the form, choose <userinput>Two Column</userinput> under "Select
+              layout" and click "Save"</para>
+          </step>
+          <step>
+            <para>Notice how we have new regions to work with now. Drag the Photo Field into the
+              Left region and the body into the Right region. Click Save.</para>
+            <note>
+              <para>There are also a number of new fields. Display suite is smart enough to know
+                that you may want even more control over other parts of an entity (like the Author
+                and the Post Date) in addition to the fields.</para>
+            </note>
+          </step>
+          <step>
+            <para>Take a look at the homepage to see what changed. It seems we are showing too much
+              text now. Let's go back to Structure, Content Types and click Manage Display next to
+              "staff."  Click "Teaser" on the top right. </para>
+          </step>
+          <step>
+            <para>Click the gear icon next to Body (right) ad change the trim length to 100.
+            </para>
+          </step>
+          <step>
+            <para>While we're here, lets add the title to the top of the Right region. Also, lets
+              wrap it in an &lt;strong> tag by clicking the gear to the right of the title. And lets
+              drag the "read more" field to the Left region under the body.</para>
+          </step>
+          <step>
+            <para>Save and go to the homepage.</para>
+          </step>
+        </procedure>
+      </task>
+      <task>
+        <!--Use Display Suite to layout a full view mode-->
+        <procedure>
+          <para>Use Display Suite to layout a full view mode</para>
+          <step>
+            <para>Go to Structure, content tpyes and click "manage display" next to staff</para>
+          </step>
+          <step>
+            <para>Choose "full content" form the list of build modes (top right).</para>
+          </step>
+          <step>
+            <para>At the bottom of the form, choose <userinput>Two Column Stacked</userinput> under
+              "Select layout" and click "Save"</para>
+          </step>
+          <step>
+            <para>Add the Title field to the Header; The Photo and Position fields to Left; and the
+              Body to the Right.</para>
+          </step>
+          <step>
+            <para>Hide the title for Photo, wrap the title in an H1, and </para>
+          </step>
+          <step>
+            <para>Click the gear next to photo and choose "medium" and link to "file" and click
+              "Update"</para>
+          </step>
+          <step>
+            <para>Save and go to one of the staff member pages.  </para>
+          </step>
+        </procedure>
+      </task>
+    </section>
+    <section>
+      <!--Modifying a view mode-->
+      <title>Extra settings</title>
+      <para>Display suite comes with tons of extra settings. Lets use one to get rid of the
+        duplicate titles.</para>
+      <task>
+        <!--Turn on extra settings-->
+        <procedure>
+          <para>Enable Display Suite</para>
+          <step>
+            <para>Go to Structure, Display Suite and then Extras</para>
+          </step>
+          <step>
+            <para>Under the "Other" tab check off "Page title options" and click "Save
+              configuration.</para>
+          </step>
+          <step>
+            <para>Go back to structure, content types, and manage the display of staff. Dont forget
+              to click "full content" in the top right.</para>
+          </step>
+          <step>
+            <para>Notice there is a new "Page Title" setting at the bottom of this page. Choose
+              "Hide" and save.</para>
+          </step>
+        </procedure>
+      </task>
+    </section>
+  </chapter>
+   </book>
